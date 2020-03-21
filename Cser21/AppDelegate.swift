@@ -1,37 +1,77 @@
 //
 //  AppDelegate.swift
-//  Cser21
+//  thammytrangvan
 //
-//  Created by Hung-Catalina on 3/20/20.
-//  Copyright © 2020 Hung-Catalina. All rights reserved.
+//  Created by NgHung on 7/28/18.
+//  Copyright © 2018 EZS. All rights reserved.
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseMessaging
+import FirebaseInstanceID
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
+    
+    var window: UIWindow?
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (isGranted, err) in
+            if err != nil {
+                //Something bad happend
+            } else {
+                UNUserNotificationCenter.current().delegate = self
+                Messaging.messaging().delegate = self
+                
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+        
+        FirebaseApp.configure()
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    func ConnectToFCM() {
+        Messaging.messaging().shouldEstablishDirectChannel = true
+        
+        if let token = InstanceID.instanceID().token() {
+            print("DCS: " + token)
+        }
+        
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    
+    func applicationWillResignActive(_ application: UIApplication) {
     }
-
-
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        Messaging.messaging().shouldEstablishDirectChannel = false
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        ConnectToFCM()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+    }
+    
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        ConnectToFCM()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        UIApplication.shared.applicationIconBadgeNumber += 1
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ""), object: nil)
+    }
 }
-

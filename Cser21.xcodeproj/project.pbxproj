@@ -7,145 +7,187 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18849F7E2424649600E7DE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18849F7D2424649600E7DE31 /* AppDelegate.swift */; };
-		18849F802424649600E7DE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18849F7F2424649600E7DE31 /* SceneDelegate.swift */; };
-		18849F822424649600E7DE31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18849F812424649600E7DE31 /* ContentView.swift */; };
-		18849F842424649B00E7DE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18849F832424649B00E7DE31 /* Assets.xcassets */; };
-		18849F872424649B00E7DE31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18849F862424649B00E7DE31 /* Preview Assets.xcassets */; };
-		18849F8A2424649B00E7DE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18849F882424649B00E7DE31 /* LaunchScreen.storyboard */; };
-		18849F952424649B00E7DE31 /* Cser21Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18849F942424649B00E7DE31 /* Cser21Tests.swift */; };
-		18849FA02424649B00E7DE31 /* Cser21UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18849F9F2424649B00E7DE31 /* Cser21UITests.swift */; };
+		18424FBC2425C8D1006D6B63 /* App21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBB2425C8D1006D6B63 /* App21.swift */; };
+		349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349088F6241B874A004AD9A0 /* GoogleService-Info.plist */; };
+		349088FA241B8A3D004AD9A0 /* embed.html in Resources */ = {isa = PBXBuildFile; fileRef = 349088F9241B8A3D004AD9A0 /* embed.html */; };
+		34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B77786241B82EA00787FE3 /* AppDelegate.swift */; };
+		34B77789241B82EA00787FE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B77788241B82EA00787FE3 /* ViewController.swift */; };
+		34B7778C241B82EA00787FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B7778A241B82EA00787FE3 /* Main.storyboard */; };
+		34B7778E241B82EB00787FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B7778D241B82EB00787FE3 /* Assets.xcassets */; };
+		34B77791241B82EB00787FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B7778F241B82EB00787FE3 /* LaunchScreen.storyboard */; };
+		34B7779C241B82EB00787FE3 /* Cser21Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7779B241B82EB00787FE3 /* Cser21Tests.swift */; };
+		34B777A7241B82EB00787FE3 /* Cser21UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B777A6241B82EB00787FE3 /* Cser21UITests.swift */; };
+		B07A94CDAD6FA1290E7A5B22 /* Pods_Cser21Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764068E86DC6C99E9E908FFC /* Pods_Cser21Tests.framework */; };
+		E57396E0E24BC19EBAB95C3C /* Pods_Cser21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C3CF4F9B4573E274F7EC4 /* Pods_Cser21.framework */; };
+		FD58ED525943F0634F7D5EE4 /* Pods_Cser21UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A981EE1F0CB207DE4BC07F40 /* Pods_Cser21UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		18849F912424649B00E7DE31 /* PBXContainerItemProxy */ = {
+		34B77798241B82EB00787FE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 18849F722424649600E7DE31 /* Project object */;
+			containerPortal = 34B7777B241B82EA00787FE3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 18849F792424649600E7DE31;
+			remoteGlobalIDString = 34B77782241B82EA00787FE3;
 			remoteInfo = Cser21;
 		};
-		18849F9C2424649B00E7DE31 /* PBXContainerItemProxy */ = {
+		34B777A3241B82EB00787FE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 18849F722424649600E7DE31 /* Project object */;
+			containerPortal = 34B7777B241B82EA00787FE3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 18849F792424649600E7DE31;
+			remoteGlobalIDString = 34B77782241B82EA00787FE3;
 			remoteInfo = Cser21;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18849F7A2424649600E7DE31 /* Cser21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cser21.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		18849F7D2424649600E7DE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18849F7F2424649600E7DE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18849F812424649600E7DE31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		18849F832424649B00E7DE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		18849F862424649B00E7DE31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		18849F892424649B00E7DE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		18849F8B2424649B00E7DE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18849F902424649B00E7DE31 /* Cser21Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cser21Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		18849F942424649B00E7DE31 /* Cser21Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cser21Tests.swift; sourceTree = "<group>"; };
-		18849F962424649B00E7DE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18849F9B2424649B00E7DE31 /* Cser21UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cser21UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		18849F9F2424649B00E7DE31 /* Cser21UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cser21UITests.swift; sourceTree = "<group>"; };
-		18849FA12424649B00E7DE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18424FBB2425C8D1006D6B63 /* App21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App21.swift; sourceTree = "<group>"; };
+		349088F6241B874A004AD9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		349088F8241B88A9004AD9A0 /* Cser21.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cser21.entitlements; sourceTree = "<group>"; };
+		349088F9241B8A3D004AD9A0 /* embed.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = embed.html; sourceTree = SOURCE_ROOT; };
+		34B77783241B82EA00787FE3 /* Cser21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cser21.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34B77786241B82EA00787FE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34B77788241B82EA00787FE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		34B7778B241B82EA00787FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34B7778D241B82EB00787FE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34B77790241B82EB00787FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34B77792241B82EB00787FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B77797241B82EB00787FE3 /* Cser21Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cser21Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34B7779B241B82EB00787FE3 /* Cser21Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cser21Tests.swift; sourceTree = "<group>"; };
+		34B7779D241B82EB00787FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B777A2241B82EB00787FE3 /* Cser21UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cser21UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34B777A6241B82EB00787FE3 /* Cser21UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cser21UITests.swift; sourceTree = "<group>"; };
+		34B777A8241B82EB00787FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57B8823C772A54A5DFE10BE7 /* Pods-Cser21UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21UITests.release.xcconfig"; path = "Target Support Files/Pods-Cser21UITests/Pods-Cser21UITests.release.xcconfig"; sourceTree = "<group>"; };
+		764068E86DC6C99E9E908FFC /* Pods_Cser21Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cser21Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		845C3CF4F9B4573E274F7EC4 /* Pods_Cser21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cser21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F73DC826E7EDD753F4B3CAE /* Pods-Cser21Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21Tests.release.xcconfig"; path = "Target Support Files/Pods-Cser21Tests/Pods-Cser21Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A675A1D71D95DA61FA607841 /* Pods-Cser21UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21UITests.debug.xcconfig"; path = "Target Support Files/Pods-Cser21UITests/Pods-Cser21UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A981EE1F0CB207DE4BC07F40 /* Pods_Cser21UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cser21UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C458C098B52EC4DC51BADF47 /* Pods-Cser21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21.release.xcconfig"; path = "Target Support Files/Pods-Cser21/Pods-Cser21.release.xcconfig"; sourceTree = "<group>"; };
+		CAF84310517FF7AE3E10FE99 /* Pods-Cser21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21.debug.xcconfig"; path = "Target Support Files/Pods-Cser21/Pods-Cser21.debug.xcconfig"; sourceTree = "<group>"; };
+		EF6657E4028E2D31F5527AE9 /* Pods-Cser21Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cser21Tests.debug.xcconfig"; path = "Target Support Files/Pods-Cser21Tests/Pods-Cser21Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		18849F772424649600E7DE31 /* Frameworks */ = {
+		34B77780241B82EA00787FE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57396E0E24BC19EBAB95C3C /* Pods_Cser21.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F8D2424649B00E7DE31 /* Frameworks */ = {
+		34B77794241B82EB00787FE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07A94CDAD6FA1290E7A5B22 /* Pods_Cser21Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F982424649B00E7DE31 /* Frameworks */ = {
+		34B7779F241B82EB00787FE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD58ED525943F0634F7D5EE4 /* Pods_Cser21UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18849F712424649600E7DE31 = {
+		2F1B0E133022B661D223817B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				18849F7C2424649600E7DE31 /* Cser21 */,
-				18849F932424649B00E7DE31 /* Cser21Tests */,
-				18849F9E2424649B00E7DE31 /* Cser21UITests */,
-				18849F7B2424649600E7DE31 /* Products */,
+				CAF84310517FF7AE3E10FE99 /* Pods-Cser21.debug.xcconfig */,
+				C458C098B52EC4DC51BADF47 /* Pods-Cser21.release.xcconfig */,
+				EF6657E4028E2D31F5527AE9 /* Pods-Cser21Tests.debug.xcconfig */,
+				9F73DC826E7EDD753F4B3CAE /* Pods-Cser21Tests.release.xcconfig */,
+				A675A1D71D95DA61FA607841 /* Pods-Cser21UITests.debug.xcconfig */,
+				57B8823C772A54A5DFE10BE7 /* Pods-Cser21UITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		34B7777A241B82EA00787FE3 = {
+			isa = PBXGroup;
+			children = (
+				34B77785241B82EA00787FE3 /* Cser21 */,
+				34B7779A241B82EB00787FE3 /* Cser21Tests */,
+				34B777A5241B82EB00787FE3 /* Cser21UITests */,
+				34B77784241B82EA00787FE3 /* Products */,
+				2F1B0E133022B661D223817B /* Pods */,
+				BB12C00E7D00844D8DDDB9AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		18849F7B2424649600E7DE31 /* Products */ = {
+		34B77784241B82EA00787FE3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18849F7A2424649600E7DE31 /* Cser21.app */,
-				18849F902424649B00E7DE31 /* Cser21Tests.xctest */,
-				18849F9B2424649B00E7DE31 /* Cser21UITests.xctest */,
+				34B77783241B82EA00787FE3 /* Cser21.app */,
+				34B77797241B82EB00787FE3 /* Cser21Tests.xctest */,
+				34B777A2241B82EB00787FE3 /* Cser21UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		18849F7C2424649600E7DE31 /* Cser21 */ = {
+		34B77785241B82EA00787FE3 /* Cser21 */ = {
 			isa = PBXGroup;
 			children = (
-				18849F7D2424649600E7DE31 /* AppDelegate.swift */,
-				18849F7F2424649600E7DE31 /* SceneDelegate.swift */,
-				18849F812424649600E7DE31 /* ContentView.swift */,
-				18849F832424649B00E7DE31 /* Assets.xcassets */,
-				18849F882424649B00E7DE31 /* LaunchScreen.storyboard */,
-				18849F8B2424649B00E7DE31 /* Info.plist */,
-				18849F852424649B00E7DE31 /* Preview Content */,
+				349088F9241B8A3D004AD9A0 /* embed.html */,
+				349088F8241B88A9004AD9A0 /* Cser21.entitlements */,
+				349088F6241B874A004AD9A0 /* GoogleService-Info.plist */,
+				34B77786241B82EA00787FE3 /* AppDelegate.swift */,
+				34B77788241B82EA00787FE3 /* ViewController.swift */,
+				34B7778A241B82EA00787FE3 /* Main.storyboard */,
+				34B7778D241B82EB00787FE3 /* Assets.xcassets */,
+				34B7778F241B82EB00787FE3 /* LaunchScreen.storyboard */,
+				34B77792241B82EB00787FE3 /* Info.plist */,
+				18424FBB2425C8D1006D6B63 /* App21.swift */,
 			);
 			path = Cser21;
 			sourceTree = "<group>";
 		};
-		18849F852424649B00E7DE31 /* Preview Content */ = {
+		34B7779A241B82EB00787FE3 /* Cser21Tests */ = {
 			isa = PBXGroup;
 			children = (
-				18849F862424649B00E7DE31 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		18849F932424649B00E7DE31 /* Cser21Tests */ = {
-			isa = PBXGroup;
-			children = (
-				18849F942424649B00E7DE31 /* Cser21Tests.swift */,
-				18849F962424649B00E7DE31 /* Info.plist */,
+				34B7779B241B82EB00787FE3 /* Cser21Tests.swift */,
+				34B7779D241B82EB00787FE3 /* Info.plist */,
 			);
 			path = Cser21Tests;
 			sourceTree = "<group>";
 		};
-		18849F9E2424649B00E7DE31 /* Cser21UITests */ = {
+		34B777A5241B82EB00787FE3 /* Cser21UITests */ = {
 			isa = PBXGroup;
 			children = (
-				18849F9F2424649B00E7DE31 /* Cser21UITests.swift */,
-				18849FA12424649B00E7DE31 /* Info.plist */,
+				34B777A6241B82EB00787FE3 /* Cser21UITests.swift */,
+				34B777A8241B82EB00787FE3 /* Info.plist */,
 			);
 			path = Cser21UITests;
+			sourceTree = "<group>";
+		};
+		BB12C00E7D00844D8DDDB9AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				845C3CF4F9B4573E274F7EC4 /* Pods_Cser21.framework */,
+				764068E86DC6C99E9E908FFC /* Pods_Cser21Tests.framework */,
+				A981EE1F0CB207DE4BC07F40 /* Pods_Cser21UITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18849F792424649600E7DE31 /* Cser21 */ = {
+		34B77782241B82EA00787FE3 /* Cser21 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18849FA42424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21" */;
+			buildConfigurationList = 34B777AB241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21" */;
 			buildPhases = (
-				18849F762424649600E7DE31 /* Sources */,
-				18849F772424649600E7DE31 /* Frameworks */,
-				18849F782424649600E7DE31 /* Resources */,
+				8392BA8084AF6DDCBD112292 /* [CP] Check Pods Manifest.lock */,
+				34B7777F241B82EA00787FE3 /* Sources */,
+				34B77780241B82EA00787FE3 /* Frameworks */,
+				34B77781241B82EA00787FE3 /* Resources */,
+				1F9BAA50704D4CE386DDE105 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,69 +195,76 @@
 			);
 			name = Cser21;
 			productName = Cser21;
-			productReference = 18849F7A2424649600E7DE31 /* Cser21.app */;
+			productReference = 34B77783241B82EA00787FE3 /* Cser21.app */;
 			productType = "com.apple.product-type.application";
 		};
-		18849F8F2424649B00E7DE31 /* Cser21Tests */ = {
+		34B77796241B82EB00787FE3 /* Cser21Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18849FA72424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21Tests" */;
+			buildConfigurationList = 34B777AE241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21Tests" */;
 			buildPhases = (
-				18849F8C2424649B00E7DE31 /* Sources */,
-				18849F8D2424649B00E7DE31 /* Frameworks */,
-				18849F8E2424649B00E7DE31 /* Resources */,
+				CA3863A9D5E8A1833671E883 /* [CP] Check Pods Manifest.lock */,
+				34B77793241B82EB00787FE3 /* Sources */,
+				34B77794241B82EB00787FE3 /* Frameworks */,
+				34B77795241B82EB00787FE3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				18849F922424649B00E7DE31 /* PBXTargetDependency */,
+				34B77799241B82EB00787FE3 /* PBXTargetDependency */,
 			);
 			name = Cser21Tests;
 			productName = Cser21Tests;
-			productReference = 18849F902424649B00E7DE31 /* Cser21Tests.xctest */;
+			productReference = 34B77797241B82EB00787FE3 /* Cser21Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		18849F9A2424649B00E7DE31 /* Cser21UITests */ = {
+		34B777A1241B82EB00787FE3 /* Cser21UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18849FAA2424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21UITests" */;
+			buildConfigurationList = 34B777B1241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21UITests" */;
 			buildPhases = (
-				18849F972424649B00E7DE31 /* Sources */,
-				18849F982424649B00E7DE31 /* Frameworks */,
-				18849F992424649B00E7DE31 /* Resources */,
+				3B09136D15C20EE7EB8EBD06 /* [CP] Check Pods Manifest.lock */,
+				34B7779E241B82EB00787FE3 /* Sources */,
+				34B7779F241B82EB00787FE3 /* Frameworks */,
+				34B777A0241B82EB00787FE3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				18849F9D2424649B00E7DE31 /* PBXTargetDependency */,
+				34B777A4241B82EB00787FE3 /* PBXTargetDependency */,
 			);
 			name = Cser21UITests;
 			productName = Cser21UITests;
-			productReference = 18849F9B2424649B00E7DE31 /* Cser21UITests.xctest */;
+			productReference = 34B777A2241B82EB00787FE3 /* Cser21UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		18849F722424649600E7DE31 /* Project object */ = {
+		34B7777B241B82EA00787FE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Hung-Catalina";
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "High Sierra";
 				TargetAttributes = {
-					18849F792424649600E7DE31 = {
-						CreatedOnToolsVersion = 11.3.1;
+					34B77782241B82EA00787FE3 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
-					18849F8F2424649B00E7DE31 = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 18849F792424649600E7DE31;
+					34B77796241B82EB00787FE3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 34B77782241B82EA00787FE3;
 					};
-					18849F9A2424649B00E7DE31 = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 18849F792424649600E7DE31;
+					34B777A1241B82EB00787FE3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 34B77782241B82EA00787FE3;
 					};
 				};
 			};
-			buildConfigurationList = 18849F752424649600E7DE31 /* Build configuration list for PBXProject "Cser21" */;
+			buildConfigurationList = 34B7777E241B82EA00787FE3 /* Build configuration list for PBXProject "Cser21" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -223,37 +272,39 @@
 				en,
 				Base,
 			);
-			mainGroup = 18849F712424649600E7DE31;
-			productRefGroup = 18849F7B2424649600E7DE31 /* Products */;
+			mainGroup = 34B7777A241B82EA00787FE3;
+			productRefGroup = 34B77784241B82EA00787FE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18849F792424649600E7DE31 /* Cser21 */,
-				18849F8F2424649B00E7DE31 /* Cser21Tests */,
-				18849F9A2424649B00E7DE31 /* Cser21UITests */,
+				34B77782241B82EA00787FE3 /* Cser21 */,
+				34B77796241B82EB00787FE3 /* Cser21Tests */,
+				34B777A1241B82EB00787FE3 /* Cser21UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		18849F782424649600E7DE31 /* Resources */ = {
+		34B77781241B82EA00787FE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18849F8A2424649B00E7DE31 /* LaunchScreen.storyboard in Resources */,
-				18849F872424649B00E7DE31 /* Preview Assets.xcassets in Resources */,
-				18849F842424649B00E7DE31 /* Assets.xcassets in Resources */,
+				34B77791241B82EB00787FE3 /* LaunchScreen.storyboard in Resources */,
+				349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */,
+				349088FA241B8A3D004AD9A0 /* embed.html in Resources */,
+				34B7778E241B82EB00787FE3 /* Assets.xcassets in Resources */,
+				34B7778C241B82EA00787FE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F8E2424649B00E7DE31 /* Resources */ = {
+		34B77795241B82EB00787FE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F992424649B00E7DE31 /* Resources */ = {
+		34B777A0241B82EB00787FE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,53 +313,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F9BAA50704D4CE386DDE105 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cser21/Pods-Cser21-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cser21/Pods-Cser21-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B09136D15C20EE7EB8EBD06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cser21UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8392BA8084AF6DDCBD112292 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cser21-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA3863A9D5E8A1833671E883 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cser21Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		18849F762424649600E7DE31 /* Sources */ = {
+		34B7777F241B82EA00787FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18849F7E2424649600E7DE31 /* AppDelegate.swift in Sources */,
-				18849F802424649600E7DE31 /* SceneDelegate.swift in Sources */,
-				18849F822424649600E7DE31 /* ContentView.swift in Sources */,
+				18424FBC2425C8D1006D6B63 /* App21.swift in Sources */,
+				34B77789241B82EA00787FE3 /* ViewController.swift in Sources */,
+				34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F8C2424649B00E7DE31 /* Sources */ = {
+		34B77793241B82EB00787FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18849F952424649B00E7DE31 /* Cser21Tests.swift in Sources */,
+				34B7779C241B82EB00787FE3 /* Cser21Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18849F972424649B00E7DE31 /* Sources */ = {
+		34B7779E241B82EB00787FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18849FA02424649B00E7DE31 /* Cser21UITests.swift in Sources */,
+				34B777A7241B82EB00787FE3 /* Cser21UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		18849F922424649B00E7DE31 /* PBXTargetDependency */ = {
+		34B77799241B82EB00787FE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18849F792424649600E7DE31 /* Cser21 */;
-			targetProxy = 18849F912424649B00E7DE31 /* PBXContainerItemProxy */;
+			target = 34B77782241B82EA00787FE3 /* Cser21 */;
+			targetProxy = 34B77798241B82EB00787FE3 /* PBXContainerItemProxy */;
 		};
-		18849F9D2424649B00E7DE31 /* PBXTargetDependency */ = {
+		34B777A4241B82EB00787FE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18849F792424649600E7DE31 /* Cser21 */;
-			targetProxy = 18849F9C2424649B00E7DE31 /* PBXContainerItemProxy */;
+			target = 34B77782241B82EA00787FE3 /* Cser21 */;
+			targetProxy = 34B777A3241B82EB00787FE3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		18849F882424649B00E7DE31 /* LaunchScreen.storyboard */ = {
+		34B7778A241B82EA00787FE3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				18849F892424649B00E7DE31 /* Base */,
+				34B7778B241B82EA00787FE3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		34B7778F241B82EB00787FE3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34B77790241B82EB00787FE3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,7 +470,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		18849FA22424649B00E7DE31 /* Debug */ = {
+		34B777A9241B82EB00787FE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -348,6 +502,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -366,7 +521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -376,7 +531,7 @@
 			};
 			name = Debug;
 		};
-		18849FA32424649B00E7DE31 /* Release */ = {
+		34B777AA241B82EB00787FE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -408,6 +563,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -420,7 +576,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -430,55 +586,57 @@
 			};
 			name = Release;
 		};
-		18849FA52424649B00E7DE31 /* Debug */ = {
+		34B777AC241B82EB00787FE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAF84310517FF7AE3E10FE99 /* Pods-Cser21.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cser21/Cser21.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Cser21/Preview Content\"";
 				DEVELOPMENT_TEAM = GMB3FFUW92;
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Cser21/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.cser211;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		18849FA62424649B00E7DE31 /* Release */ = {
+		34B777AD241B82EB00787FE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C458C098B52EC4DC51BADF47 /* Pods-Cser21.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cser21/Cser21.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Cser21/Preview Content\"";
 				DEVELOPMENT_TEAM = GMB3FFUW92;
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Cser21/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.cser211;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		18849FA82424649B00E7DE31 /* Debug */ = {
+		34B777AF241B82EB00787FE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF6657E4028E2D31F5527AE9 /* Pods-Cser21Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
+				DEVELOPMENT_TEAM = 882HLDS64C;
 				INFOPLIST_FILE = Cser21Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,21 +644,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cser21.app/Cser21";
 			};
 			name = Debug;
 		};
-		18849FA92424649B00E7DE31 /* Release */ = {
+		34B777B0241B82EB00787FE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F73DC826E7EDD753F4B3CAE /* Pods-Cser21Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
+				DEVELOPMENT_TEAM = 882HLDS64C;
 				INFOPLIST_FILE = Cser21Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,18 +666,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cser21.app/Cser21";
 			};
 			name = Release;
 		};
-		18849FAB2424649B00E7DE31 /* Debug */ = {
+		34B777B2241B82EB00787FE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A675A1D71D95DA61FA607841 /* Pods-Cser21UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
+				DEVELOPMENT_TEAM = 882HLDS64C;
 				INFOPLIST_FILE = Cser21UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,18 +687,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Cser21;
 			};
 			name = Debug;
 		};
-		18849FAC2424649B00E7DE31 /* Release */ = {
+		34B777B3241B82EB00787FE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B8823C772A54A5DFE10BE7 /* Pods-Cser21UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
+				DEVELOPMENT_TEAM = 882HLDS64C;
 				INFOPLIST_FILE = Cser21UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,7 +708,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Cser21UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Cser21;
 			};
@@ -557,43 +717,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18849F752424649600E7DE31 /* Build configuration list for PBXProject "Cser21" */ = {
+		34B7777E241B82EA00787FE3 /* Build configuration list for PBXProject "Cser21" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18849FA22424649B00E7DE31 /* Debug */,
-				18849FA32424649B00E7DE31 /* Release */,
+				34B777A9241B82EB00787FE3 /* Debug */,
+				34B777AA241B82EB00787FE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18849FA42424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21" */ = {
+		34B777AB241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18849FA52424649B00E7DE31 /* Debug */,
-				18849FA62424649B00E7DE31 /* Release */,
+				34B777AC241B82EB00787FE3 /* Debug */,
+				34B777AD241B82EB00787FE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18849FA72424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21Tests" */ = {
+		34B777AE241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18849FA82424649B00E7DE31 /* Debug */,
-				18849FA92424649B00E7DE31 /* Release */,
+				34B777AF241B82EB00787FE3 /* Debug */,
+				34B777B0241B82EB00787FE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18849FAA2424649B00E7DE31 /* Build configuration list for PBXNativeTarget "Cser21UITests" */ = {
+		34B777B1241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18849FAB2424649B00E7DE31 /* Debug */,
-				18849FAC2424649B00E7DE31 /* Release */,
+				34B777B2241B82EB00787FE3 /* Debug */,
+				34B777B3241B82EB00787FE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 18849F722424649600E7DE31 /* Project object */;
+	rootObject = 34B7777B241B82EA00787FE3 /* Project object */;
 }

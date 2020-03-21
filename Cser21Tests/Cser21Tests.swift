@@ -2,8 +2,8 @@
 //  Cser21Tests.swift
 //  Cser21Tests
 //
-//  Created by Hung-Catalina on 3/20/20.
-//  Copyright © 2020 Hung-Catalina. All rights reserved.
+//  Created by High Sierra on 3/13/20.
+//  Copyright © 2020 High Sierra. All rights reserved.
 //
 
 import XCTest
