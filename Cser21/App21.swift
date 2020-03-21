@@ -104,8 +104,9 @@ class App21 : NSObject
             // self.caller.openCamera(result: result);
             self._PERMISSION(permission: PermissionName.camera,result: result, ok:{(mess: String) -> Void in
                 //go
-                NSLog("ok->openCamera")
-                AttachmentHandler.shared.showCamera(vc: self.caller)
+                NSLog("ok->openCamera");
+                
+                AttachmentHandler.shared.showCamera(vc: self.caller);
                 AttachmentHandler.shared.imagePickedBlock = { (image) in
                     /* get your image here */
                     //Use image name from bundle to create NSData

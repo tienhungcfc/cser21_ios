@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E40822426573E00FFB738 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E40812426573E00FFB738 /* JSON.swift */; };
+		181E40842426593400FFB738 /* DownloadFileTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E40832426593400FFB738 /* DownloadFileTask.swift */; };
 		18424FBC2425C8D1006D6B63 /* App21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBB2425C8D1006D6B63 /* App21.swift */; };
 		18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */; };
 		349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349088F6241B874A004AD9A0 /* GoogleService-Info.plist */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181E40812426573E00FFB738 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		181E40832426593400FFB738 /* DownloadFileTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileTask.swift; sourceTree = "<group>"; };
 		18424FBB2425C8D1006D6B63 /* App21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App21.swift; sourceTree = "<group>"; };
 		18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		349088F6241B874A004AD9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -147,6 +151,8 @@
 				34B77792241B82EB00787FE3 /* Info.plist */,
 				18424FBB2425C8D1006D6B63 /* App21.swift */,
 				18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */,
+				181E40812426573E00FFB738 /* JSON.swift */,
+				181E40832426593400FFB738 /* DownloadFileTask.swift */,
 			);
 			path = Cser21;
 			sourceTree = "<group>";
@@ -417,6 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				18424FBC2425C8D1006D6B63 /* App21.swift in Sources */,
+				181E40822426573E00FFB738 /* JSON.swift in Sources */,
+				181E40842426593400FFB738 /* DownloadFileTask.swift in Sources */,
 				18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */,
 				34B77789241B82EA00787FE3 /* ViewController.swift in Sources */,
 				34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */,

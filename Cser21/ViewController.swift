@@ -24,8 +24,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     
     var os10:Bool = false;
     
-    let domain = "https://baohaspa.com.vn/";
-    let colorBrand = 0x891d66;
+    let domain = "https://cser.vn/";
+    let colorBrand = 0xff4e40;
     let mtop = CGFloat(20);
     /*
      for event: onTap,onPinch,onRotation,onSwipe,onPan,onEPan,onLongpress
@@ -197,8 +197,15 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     }
     
     //MARK: - evalJs
-    func evalJs()
+    func evalJs(str: String)
     {
+        if(os10){
+            //uv.loadRequest(<#T##request: URLRequest##URLRequest#>)("app_response('\(cmd)','\(value)',true)",completionHandler: nil)
+            //let str:String = "javascript:app_response('\(cmd)','\(value)',true);";
+            uv.stringByEvaluatingJavaScript(from: str)
+        }else{
+            wv.evaluateJavaScript(str,completionHandler: nil)
+        }
         
     }
     

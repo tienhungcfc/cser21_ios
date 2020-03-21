@@ -33,68 +33,13 @@ class AttachmentHandler: NSObject {
     var videoPickedBlock: ((NSURL) -> Void)?
     var filePickedBlock: ((URL) -> Void)?
     
-    func showAttachmentActionSheet(_ attachmentMenu: [AttachmentMenu], taget: UIViewController) {
-        currentVC = taget
-        self.actionSheetController = nil
-        for menu in attachmentMenu {
-            actionSheet(with: menu)
-        }
-        currentVC!.present(actionSheetController!, animated: true, completion: nil)
-        
+   
+
+   public func showCamera(vc: UIViewController){
+        currentVC = vc;
+        self.openCamera()
     }
-    
-    func actionSheet(with attachmentMenu: AttachmentMenu) {
-        
-        if self.actionSheetController == nil {
-            self.actionSheetController = UIAlertController(title: LocalizedStringConstant.cameraOption, message: LocalizedStringConstant.cameraSelectImage, preferredStyle: .actionSheet)
-            let cancelAction: UIAlertAction = UIAlertAction(title: LocalizedStringConstant.cameraCancel, style: .cancel) { _ -> Void in
-            }
-            self.actionSheetController!.addAction(cancelAction)
-            
-        }
-        
-        switch attachmentMenu {
-        case .camera:
-            
-            let takePictureAction: UIAlertAction = UIAlertAction(title: LocalizedStringConstant.cameraTakePicture, style: .default) { _ -> Void in
-                self.authorisationStatus(attachmentTypeEnum: .camera, viewController: self.currentVC!)
-            }
-            self.actionSheetController!.addAction(takePictureAction)
-            
-        case .photoLibrary:
-            
-            let choosePictureAction: UIAlertAction = UIAlertAction(title: LocalizedStringConstant.selectFromCamraRool, style: .default) { _ -> Void in
-                self.authorisationStatus(attachmentTypeEnum: .photoLibrary, viewController: self.currentVC!)
-            }
-            self.actionSheetController!.addAction(choosePictureAction)
-            
-        case .video:
-            
-            let chooseVideoAction: UIAlertAction = UIAlertAction(title: LocalizedStringConstant.selectFromCamraRool, style: .default) { _ -> Void in
-                self.authorisationStatus(attachmentTypeEnum: .video, viewController: self.currentVC!)
-            }
-            self.actionSheetController!.addAction(chooseVideoAction)
-            
-        case .document:
-            
-            let chooseFileAction: UIAlertAction = UIAlertAction(title: LocalizedStringConstant.selectFromCamraRool, style: .default) { _ -> Void in
-                self.documentPicker()
-            }
-            self.actionSheetController!.addAction(chooseFileAction)
-            
-        }
-    }
-    
-    func authorisationStatus(attachmentTypeEnum: AttachmentType, viewController: UIViewController) {
-        currentVC = viewController
-        switch attachmentTypeEnum {
-        case .camera:
-            self.showCameraPermissionPopup(attachmentTypeEnum: attachmentTypeEnum)
-        case .photoLibrary, .video:
-            self.showphotoLibraryPermissionPopup(attachmentTypeEnum: attachmentTypeEnum)
-        }
-        
-    }
+   
     
     func openCamera() {
         DispatchQueue.main.async { () -> Void in
@@ -107,28 +52,7 @@ class AttachmentHandler: NSObject {
         }
     }
     
-    private func showCameraPermissionPopup(attachmentTypeEnum: AttachmentType) {
-        let status = AVCaptureDevice.authorizationStatus(for: .video)
-        switch status {
-        case .authorized: // The user has previously granted access to the camera.
-            self.openCamera()
-            
-        case .notDetermined: // The user has not yet been asked for camera access.
-            AVCaptureDevice.requestAccess(for: .video) { granted in
-                if granted {
-                    self.openCamera()
-                }
-            }
-            //denied - The user has previously denied access.
-        //restricted - The user can't grant access due to restrictions.
-        case .denied, .restricted:
-            self.addAlertForSettings(attachmentTypeEnum: .camera)
-            return
-            
-        @unknown default:
-            break
-        }
-    }
+    
     
     func photoLibrary() {
         DispatchQueue.main.async { () -> Void in
@@ -141,33 +65,7 @@ class AttachmentHandler: NSObject {
         }
     }
     
-    private func showphotoLibraryPermissionPopup(attachmentTypeEnum: AttachmentType) {
-        
-        let status = PHPhotoLibrary.authorizationStatus()
-        switch status {
-        case .authorized:
-            if attachmentTypeEnum == .photoLibrary {
-                photoLibrary()
-            }
-            if attachmentTypeEnum == .video {
-                videoLibrary()
-            }
-        case .denied, .restricted:
-            self.addAlertForSettings(attachmentTypeEnum: .photoLibrary)
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization({ (status) in
-                if status == PHAuthorizationStatus.authorized {
-                    self.photoLibrary()
-                }
-                if attachmentTypeEnum == AttachmentType.video {
-                    self.videoLibrary()
-                }
-            })
-            
-        @unknown default:
-            break
-        }
-    }
+    
     
     func videoLibrary() {
         DispatchQueue.main.async { () -> Void in
