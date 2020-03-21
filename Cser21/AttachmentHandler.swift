@@ -196,13 +196,7 @@ class AttachmentHandler: NSObject {
 
 extension AttachmentHandler {
     
-    func addAlertForSettings(attachmentTypeEnum: AttachmentType) {
-        GLOBALHELPER.showAlert(LocalizedStringConstant.cameraAccessMessage, okButtonText: LocalizedStringConstant.gotoSettting, cancelButtonText: LocalizedStringConstant.cancel, position: .bottom) { (_, button) in
-            if button == .other {
-                UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-            }
-        }
-    }
+   
     
 }
 
