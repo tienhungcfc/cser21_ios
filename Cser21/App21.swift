@@ -5,17 +5,253 @@
 //  Created by Hung-Catalina on 3/21/20.
 //  Copyright © 2020 High Sierra. All rights reserved.
 //
-
 import Foundation
-//MARK: - App21
-class App21{
-    
-    
-    
-    //MARK: - Call from ViewController
-    public func call(value: String)
+import UIKit
+import MobileCoreServices
+import AVFoundation
+import Photos
+
+class App21 : NSObject
+{
+    var caller:  ViewController
+    init(viewController: ViewController)
     {
+        caller = viewController;
         
     }
     
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+
+    //MARK: - App21Result
+    func App21Result(result: Result) -> Void {
+        do {
+           let jsonEncoder = JSONEncoder()
+           let jsonData = try jsonEncoder.encode(result)
+           let json = String(data: jsonData, encoding: String.Encoding.utf8)
+           //chuyen ve base64 -> khong bi loi ky tu dac biet
+           let base64 = json?.base64Encoded();
+           DispatchQueue.main.async(execute: {
+               self.caller.evalJs(str: "App21Result('BASE64:" + base64! + "')");
+           })
+        } catch  {
+            //
+            NSLog("App21Result -> " + error.localizedDescription);
+        }
+        
+    }
+    
+    func call(jsonStr: String) -> Void {
+        //
+        
+        let result = Result();
+       
+        
+        do {
+            let data = jsonStr.data(using: .utf8);
+            let json = try JSONSerialization.jsonObject(with: data! , options: []) as? [String: Any];
+            result.sub_cmd = json!["sub_cmd"] as? String;
+            result.sub_cmd_id = json!["sub_cmd_id"] as! Int;
+            result.params = json!["params"] as? String;
+            
+            
+            //var selector = Selector(result.sub_cmd! + ":");
+            
+            //var selector = #selector(App21.REBOOT(result:)) => run ok
+            
+            //see: https://forums.developer.apple.com/thread/86081
+            var selector = Selector(result.sub_cmd! + "WithResult:")
+            performSelector(inBackground: selector, with: result)
+           
+           // App21Result(result: result);
+            return;
+        }
+        catch let e as NSException{
+            NSLog(e.reason!)
+        }
+        catch  {
+            print(error.localizedDescription);
+            result.success = false;
+            result.error = error.localizedDescription;
+            App21Result(result: result);
+        }
+    }
+    //MARK: - REBOOT
+    @objc func REBOOT(result: Result) -> Void {
+        //
+        result.success = true;
+        App21Result(result: result);
+        
+        //rat kho restart app, chi reload webUI
+       DispatchQueue.main.async(execute: {
+            self.caller.reloadStoryboard();
+       })
+    
+        
+    }
+    //MARK: - CAMERA
+    @objc func CAMERA(result: Result) -> Void {
+        //
+        DispatchQueue.main.async(execute: {
+            // self.caller.openCamera(result: result);
+            self._PERMISSION(permission: PermissionName.camera,result: result, ok:{(mess: String) -> Void in
+                //go
+                NSLog("ok->openCamera")
+                AttachmentHandler.shared.showCamera(vc: self.caller)
+                AttachmentHandler.shared.imagePickedBlock = { (image) in
+                    /* get your image here */
+                    //Use image name from bundle to create NSData
+                    // let image : UIImage = UIImage(named:"imageNameHere")!
+                    //Now use image to create into NSData format
+                    //let imageData:NSData = image.pngData()! as NSData
+                    
+                    //let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+                    result.success = true
+                    var src = DownloadFileTask().save(image: image,
+                                                      opt: self.paramsToDic(params: result.params));
+                    result.data = JSON(src);
+                    self.App21Result(result: result);
+                    
+                    
+                }
+            })
+        })
+ 
+    }
+    
+    func paramsToDic(params: String?) -> [String:String]
+    {
+        var d = [String:String]();
+        if(params != nil)
+        {
+            for seg in (params?.split(separator: ","))!
+            {
+                var arr = seg.split(separator: ":")
+                d[String(describing: arr[0])] = arr.count > 1 ? String(describing: arr[1]) : "";
+            }
+        }
+        return d;
+    }
+    
+    func reject(result: Result, resson: String)
+    {
+        NSLog(resson)
+        result.success = false;
+        result.error = resson
+        App21Result(result: result)
+    }
+    //MARK: - _PERMISSION
+    //permission:camera, video, photoLibrary
+    func _PERMISSION(permission: PermissionName,result: Result, ok:  @escaping(_ mess: String)->Void )
+    {
+        switch(permission){
+        case .camera,.photoLibrary,.video:
+            let status = PHPhotoLibrary.authorizationStatus()
+            switch status {
+            case .authorized:
+                //ok
+                NSLog("authorized")
+                ok("authorized");
+                break;
+            case .notDetermined:
+                PHPhotoLibrary.requestAuthorization({ (status) in
+                    if status == PHAuthorizationStatus.authorized{
+                        // photo library access given
+                        
+                        ok("access_given");
+                    }else{
+                        self.reject(result: result, resson: "restriced_manually")
+                    }
+                })
+            case .denied:
+                
+                self.reject(result: result, resson: "permission_denied")
+                
+                break
+            case .restricted:
+               
+                self.reject(result: result, resson: "permission_restricted")
+                
+                break
+            default:
+                break
+            }
+        }
+    }
+    enum PermissionName: String{
+        case camera, video, photoLibrary
+    }
+    
 }
+
+//MARK: - Result
+class Result : NSObject {
+    var success = true
+    var data: JSON? = nil
+    var error: String? = ""
+    
+    var sub_cmd: String? = ""
+    var sub_cmd_id: Int = 0
+    var params: String? = ""
+    
+    enum CodingKeys:String, CodingKey {
+        case success
+        case data
+        case error
+        case sub_cmd
+        case sub_cmd_id
+        case params
+    }
+}
+extension Result: Encodable {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(success, forKey: .success)
+        try container.encode(error, forKey: .error)
+        if(data != nil)
+        {
+           
+           try container.encode(data, forKey: .data)
+           
+        }
+        try container.encode(sub_cmd, forKey: .sub_cmd)
+        try container.encode(params, forKey: .params)
+        try container.encode(sub_cmd_id, forKey: .sub_cmd_id)
+    }
+}
+
+
+extension String {
+//: ### Base64 encoding a string
+    func base64Encoded() -> String? {
+    
+        if let data = self.data(using: .utf8) {
+            return data.base64EncodedString()
+        }
+        return nil
+    }
+
+//: ### Base64 decoding a string
+    func base64Decoded() -> String? {
+        if let data = Data(base64Encoded: self) {
+            return String(data: data, encoding: .utf8)
+        }
+        return nil
+    }
+}
+enum Error21 : Error {
+   case runtimeError(String)
+}
+
+
+
+
+

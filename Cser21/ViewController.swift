@@ -191,6 +191,18 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     func IconBadgeNumber(strNum : String) -> Void {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    //MARK: - reloadStoryboard
+    func reloadStoryboard()  {
+        loadView();
+    }
+    
+    //MARK: - evalJs
+    func evalJs()
+    {
+        
+    }
+    
+    //MARK: - Do
     
     func Do(cmd: String,value: Any?)  {
         if(value == nil) { return;}
@@ -229,6 +241,10 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             break
         case "open_link":
             open_link(url: str);
+            break
+        //MARK: - case:call
+        case "call":
+            App21(viewController: self).call(jsonStr: value as! String)
             break
         default:
             break
@@ -386,7 +402,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             
         }
     }
-    
+    //MARK: - loadView
     override func loadView() {
         super.loadView()
         if #available(iOS 11.0, *) {
