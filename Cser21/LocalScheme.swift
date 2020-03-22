@@ -18,7 +18,7 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
         var url = urlSchemeTask.request.url?.absoluteString
         var file = DownloadFileTask.urlToLocalFileName(url!);
         
-        
+        ///
     }
     
     func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
