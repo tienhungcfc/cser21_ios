@@ -50,8 +50,5 @@ class DownloadFileTask {
          return replaceStartWith(str: localUrl, startWidth: "local://", replace: "file://")
     }
     
-    func setUpWebForLocalFile()
-    {
-        
-    }
+   
 }
