@@ -10,3 +10,9 @@ for ios
 - Tạo Icon
 - Bật Push Notification
 #2. Copy các file sau từ code gốc:
+
+
+#3. Info.plist 
+- copy các dòng Privacy từ Info.plist gốc
+
+#4. Run test, public
