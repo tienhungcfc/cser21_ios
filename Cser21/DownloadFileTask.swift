@@ -50,5 +50,46 @@ class DownloadFileTask {
          return replaceStartWith(str: localUrl, startWidth: "local://", replace: "file://")
     }
     
+    static func readData(filePath: String)  -> Data
+    {
+       // let inp = InputStream(fileAtPath: filePath);
+        let path = filePath // or whatever...
+        //let currentDirectory = getDocumentsDirectory(DownloadFileTask())
+        let absouteURL = URL(fileURLWithPath: path);
+        let inp = InputStream(url: absouteURL)
+        do{
+            return  try Data(reading: inp!)
+        }catch{
+            //throw  Error21.runtimeError(error.localizedDescription)
+            NSLog(error.localizedDescription);
+            return Data.init(); //empty
+        }
+    }
    
+}
+extension Data {
+    init(reading input: InputStream) throws {
+        self.init()
+        input.open()
+        defer {
+            input.close()
+        }
+
+        let bufferSize = 1024
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
+        defer {
+            buffer.deallocate()
+        }
+        while input.hasBytesAvailable {
+            let read = input.read(buffer, maxLength: bufferSize)
+            if read < 0 {
+                //Stream error occured
+                throw input.streamError!
+            } else if read == 0 {
+                //EOF
+                break
+            }
+            self.append(buffer, count: read)
+        }
+    }
 }
