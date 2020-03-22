@@ -418,6 +418,12 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             // let bg = UIColor(colorWithHaxValue: colorBrand);
             let h = view.bounds.height ;//- mtop
             let frm = CGRect(x:0 , y:0, width: view.bounds.width, height: h)
+            
+            //app21: handler file local
+            //webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+            webConfiguration.setURLSchemeHandler(LocalSchemeHandler(), forURLScheme: "local")
+            //
+            
             wv = WKWebView(frame: frm, configuration: webConfiguration);
             //view.backgroundColor = bg;
             view.addSubview(wv);

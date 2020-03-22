@@ -14,7 +14,7 @@ class DownloadFileTask {
     }
     
     func ddMMyyyyHHmmss(date: Date?) -> String {
-        var d = date ?? Date();
+        let d = date ?? Date();
         let formatter = DateFormatter()
         formatter.dateFormat = "ddMMyyyyHHmmss"
         return formatter.string(from: d);
@@ -24,16 +24,34 @@ class DownloadFileTask {
         
         var ext = ".png";
         var pref = "IMG-";
-        if(opt != nil )
-        {
-            ext = opt["ext"] == ".jpg" ? ".jpg" : ".png"
-            ext = opt["pref"]  ?? pref
-        }
-        var data = ext == ".jpg" ? image.jpegData(compressionQuality: 1) : image.pngData();
         
-        var name = pref + ddMMyyyyHHmmss(date: Date()) + ext;
+        ext = opt["ext"] == ".jpg" ? ".jpg" : ".png"
+        pref = opt["pref"]  ?? pref
+        
+        let data = ext == ".jpg" ? image.jpegData(compressionQuality: 1) : image.pngData();
+        
+        let name = pref + ddMMyyyyHHmmss(date: Date()) + ext;
         let filename = getDocumentsDirectory().appendingPathComponent(name)
         try? data!.write(to: filename)
-        return filename.absoluteString
+        return DownloadFileTask.toLocalSchemeUrl(filename.absoluteString)
+    }
+    
+    static func replaceStartWith(str: String, startWidth: String, replace: String) -> String {
+        let pref = startWidth;
+        let index = str.index(str.startIndex, offsetBy: pref.count)
+        let s = str[index...]
+        return replace + s;
+    }
+    
+    static func toLocalSchemeUrl(_ filename: String) -> String {
+       return replaceStartWith(str: filename, startWidth: "file://", replace: "local://")
+    }
+    static func urlToLocalFileName(_ localUrl: String) -> String {
+         return replaceStartWith(str: localUrl, startWidth: "local://", replace: "file://")
+    }
+    
+    func setUpWebForLocalFile()
+    {
+        
     }
 }

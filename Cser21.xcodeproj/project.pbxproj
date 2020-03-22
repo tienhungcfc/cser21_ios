@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1816C8B82426EFAC009D326D /* LocalScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816C8B72426EFAB009D326D /* LocalScheme.swift */; };
 		181E40822426573E00FFB738 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E40812426573E00FFB738 /* JSON.swift */; };
 		181E40842426593400FFB738 /* DownloadFileTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E40832426593400FFB738 /* DownloadFileTask.swift */; };
 		18424FBC2425C8D1006D6B63 /* App21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBB2425C8D1006D6B63 /* App21.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1816C8B72426EFAB009D326D /* LocalScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalScheme.swift; sourceTree = "<group>"; };
 		181E40812426573E00FFB738 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		181E40832426593400FFB738 /* DownloadFileTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileTask.swift; sourceTree = "<group>"; };
 		18424FBB2425C8D1006D6B63 /* App21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App21.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */,
 				181E40812426573E00FFB738 /* JSON.swift */,
 				181E40832426593400FFB738 /* DownloadFileTask.swift */,
+				1816C8B72426EFAB009D326D /* LocalScheme.swift */,
 			);
 			path = Cser21;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18424FBC2425C8D1006D6B63 /* App21.swift in Sources */,
+				1816C8B82426EFAC009D326D /* LocalScheme.swift in Sources */,
 				181E40822426573E00FFB738 /* JSON.swift in Sources */,
 				181E40842426593400FFB738 /* DownloadFileTask.swift in Sources */,
 				18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */,
