@@ -193,7 +193,9 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     }
     //MARK: - reloadStoryboard
     func reloadStoryboard()  {
+        //wv.reload()
         loadView();
+        viewDidLoad();
     }
     
     //MARK: - evalJs
