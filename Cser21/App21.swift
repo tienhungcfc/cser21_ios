@@ -68,7 +68,13 @@ class App21 : NSObject
             //var selector = #selector(App21.REBOOT(result:)) => run ok
             
             //see: https://forums.developer.apple.com/thread/86081
-            var selector = Selector(result.sub_cmd! + "WithResult:")
+            let selector = Selector(result.sub_cmd! + "WithResult:")
+            if(selector.hashValue==0){
+                result.success = false;
+                result.error = (result.sub_cmd ?? "") +  " NOT FOUND";
+                App21Result(result: result)
+                return;
+            }
             performSelector(inBackground: selector, with: result)
            
            // App21Result(result: result);
@@ -116,7 +122,7 @@ class App21 : NSObject
                     
                     //let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
                     result.success = true
-                    var src = DownloadFileTask().save(image: image,
+                    let src = DownloadFileTask().save(image: image,
                                                       opt: self.paramsToDic(params: result.params));
                     result.data = JSON(src);
                     self.App21Result(result: result);
@@ -128,6 +134,31 @@ class App21 : NSObject
  
     }
     
+    
+    //MARK: - DOWNLOAD
+    @objc func DOWNLOAD(result: Result) -> Void
+    {
+        DownloadFileTask().load(src: result.params!, success: { (absPath: String) -> Void in
+//
+            result.success = true;
+            result.data = JSON(DownloadFileTask.toLocalSchemeUrl(absPath));
+            self.App21Result(result: result)
+            
+        }) { (mess: String)  -> Void in
+            //
+            result.success = false;
+            result.error = mess;
+            self.App21Result(result: result)
+        }
+    }
+    
+    
+    //MARK: - GET_DOWNLOADED
+    @objc func GET_DOWNLOADED(result: Result) -> Void
+    {
+        
+    }
+    
     func paramsToDic(params: String?) -> [String:String]
     {
         var d = [String:String]();
@@ -135,7 +166,7 @@ class App21 : NSObject
         {
             for seg in (params?.split(separator: ","))!
             {
-                var arr = seg.split(separator: ":")
+                let arr = seg.split(separator: ":")
                 d[String(describing: arr[0])] = arr.count > 1 ? String(describing: arr[1]) : "";
             }
         }
@@ -187,6 +218,9 @@ class App21 : NSObject
             }
         }
     }
+    
+    
+    
     enum PermissionName: String{
         case camera, video, photoLibrary
     }

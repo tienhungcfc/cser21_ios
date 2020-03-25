@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - Firebase/Core (5.17.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.6.0)
@@ -62,11 +63,13 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Core
   - Firebase/Messaging
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -79,6 +82,7 @@ SPEC REPOS:
     - Protobuf
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
@@ -90,6 +94,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 3984762e18cceaf8b551875513a38c9c0e53bf6e
+PODFILE CHECKSUM: 3868588827b40a44aaba713f7e181d3b0d9fa8ba
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

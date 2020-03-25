@@ -7,6 +7,7 @@ target 'Cser21' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
+pod 'Alamofire'
   # Pods for Cser21
 
   target 'Cser21Tests' do

@@ -7,6 +7,7 @@
 //
 import UIKit
 import Foundation
+import Alamofire
 class DownloadFileTask {
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -64,6 +65,48 @@ class DownloadFileTask {
             NSLog(error.localizedDescription);
             return Data.init(); //empty
         }
+    }
+    
+    
+    
+    func load(src: String, success: @escaping (_ src: String) -> (),fail: @escaping (_ mess: String) -> ()) {
+        let manager = Alamofire.SessionManager.default
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            
+            var fn = src.split(separator: "?").first
+            fn = fn?.split(separator: "/").last
+            
+            
+            var documentsURL = self.getDocumentsDirectory()
+            documentsURL.appendPathComponent(self.ddMMyyyyHHmmss(date: Date()) + "-" + fn!)
+           
+            return (documentsURL, [.removePreviousFile])
+        }
+        
+        manager.download(URL(string: src)!, to: destination)
+            
+            .downloadProgress(queue: .main, closure: { (progress) in
+                //progress closure
+                print(progress.fractionCompleted)
+            })
+            .validate { request, response, temporaryURL, destinationURL in
+                // Custom evaluation closure now includes file URLs (allows you to parse out error messages if necessary)
+                //GlobalData.sharedInstance.dismissLoader()
+                return .success
+            }
+            
+            .responseData { response in
+                if let destinationUrl = response.destinationURL {
+                    print(destinationUrl)
+                    
+                    
+                    success(response.destinationURL!.absoluteString)
+                   
+                } else {
+                    //GlobalData.sharedInstance.dismissLoader()
+                    fail("LOI")
+                }
+            }
     }
    
 }
