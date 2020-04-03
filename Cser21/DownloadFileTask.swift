@@ -118,14 +118,7 @@ class DownloadFileTask {
     
     
     func load(src: String, success: @escaping (_ src: String) -> (),fail: @escaping (_ mess: String) -> ()) {
-        ///*
-        let cache = getCache(url: src);
-        if(cache != nil && cache != "")
-        {
-            success(cache!);
-            return;
-        }
-        //*/
+        //không dùng cache ở đây(dùng localStore ở client)
         
         let manager = Alamofire.SessionManager.default
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
