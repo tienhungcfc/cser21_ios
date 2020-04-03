@@ -88,12 +88,29 @@ class DownloadFileTask {
         }
     }
     
+    let cachName: String = "downloadCache"
+    
     //MARK: - getCache
-    func getCache(url: String) -> String
+    func getCache(url: String) -> String?
     {
-        
-        return ""
+        var dic = UserDefaults.standard.dictionary(forKey: cachName);
+        if(dic == nil)
+        {
+            dic = [String:Any]();
+        }
+        return dic![url] as? String
     }
+    func setCache(url: String,localPath: String)
+    {
+        var dic = UserDefaults.standard.dictionary(forKey: cachName);
+        if(dic == nil)
+        {
+            dic = [String:Any]();
+        }
+        dic![url] = localPath;
+        UserDefaults.standard.set(dic!, forKey: cachName);
+    }
+    
     
     func clear(param: String)  {
         
@@ -101,6 +118,15 @@ class DownloadFileTask {
     
     
     func load(src: String, success: @escaping (_ src: String) -> (),fail: @escaping (_ mess: String) -> ()) {
+        ///*
+        let cache = getCache(url: src);
+        if(cache != nil && cache != "")
+        {
+            success(cache!);
+            return;
+        }
+        //*/
+        
         let manager = Alamofire.SessionManager.default
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             
@@ -130,8 +156,9 @@ class DownloadFileTask {
                 if let destinationUrl = response.destinationURL {
                     print(destinationUrl)
                     
-                    
-                    success(response.destinationURL!.absoluteString)
+                    let local = response.destinationURL!.absoluteString;
+                    self.setCache(url: src, localPath: local)
+                    success(local)
                    
                 } else {
                     //GlobalData.sharedInstance.dismissLoader()
