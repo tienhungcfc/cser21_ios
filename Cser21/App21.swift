@@ -103,6 +103,8 @@ class App21 : NSObject
     
         
     }
+    
+    
     //MARK: - CAMERA
     @objc func CAMERA(result: Result) -> Void {
         //
@@ -113,6 +115,7 @@ class App21 : NSObject
                 NSLog("ok->openCamera");
                 
                 AttachmentHandler.shared.showCamera(vc: self.caller);
+                
                 AttachmentHandler.shared.imagePickedBlock = { (image) in
                     /* get your image here */
                     //Use image name from bundle to create NSData
@@ -126,9 +129,8 @@ class App21 : NSObject
                                                       opt: self.paramsToDic(params: result.params));
                     result.data = JSON(src);
                     self.App21Result(result: result);
-                    
-                    
                 }
+                
             })
         })
  
@@ -150,6 +152,15 @@ class App21 : NSObject
             result.error = mess;
             self.App21Result(result: result)
         }
+    }
+    
+    
+    //MARK: - CLEAR_DOWNLOAD
+    @objc func CLEAR_DOWNLOAD(result: Result) -> Void
+    {
+        DownloadFileTask().clear(param: result.params ?? "")
+        result.success = true;
+        App21Result(result: result);
     }
     
     

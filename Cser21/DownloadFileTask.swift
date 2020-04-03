@@ -69,6 +69,37 @@ class DownloadFileTask {
     
     
     
+    func deletePath(path: String)
+    {
+        let fn = path.split(separator: "/").last
+        //let filename = getDocumentsDirectory().appendingPathComponent(fn);
+        var fileUrl = self.getDocumentsDirectory()
+        //documentsURL.appendPathComponent(fn!)
+        fileUrl.appendPathComponent("" + fn!)
+        let fileManager = FileManager.default
+
+        // Delete 'hello.swift' file
+
+        do {
+            try fileManager.removeItem(atPath: fileUrl.absoluteString)
+        }
+        catch let error as NSError {
+            print("Ooops! Something went wrong: \(error)")
+        }
+    }
+    
+    //MARK: - getCache
+    func getCache(url: String) -> String
+    {
+        
+        return ""
+    }
+    
+    func clear(param: String)  {
+        
+    }
+    
+    
     func load(src: String, success: @escaping (_ src: String) -> (),fail: @escaping (_ mess: String) -> ()) {
         let manager = Alamofire.SessionManager.default
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
@@ -109,6 +140,8 @@ class DownloadFileTask {
             }
     }
    
+    
+    
 }
 extension Data {
     init(reading input: InputStream) throws {
