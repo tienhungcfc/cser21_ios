@@ -116,7 +116,7 @@ class DownloadFileTask {
         
     }
     
-    
+    //MARK: - load
     func load(src: String, success: @escaping (_ src: String) -> (),fail: @escaping (_ mess: String) -> ()) {
         //không dùng cache ở đây(dùng localStore ở client)
         
@@ -160,7 +160,36 @@ class DownloadFileTask {
             }
     }
    
-    
+    //MARK: - getlist
+    func getlist() -> [[String:Any?]]
+    {
+        var lst = [[String:Any?]]()
+        let fileManager = FileManager.default
+        let documentsURL = self.getDocumentsDirectory()
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            // process files
+            for f in fileURLs
+            {
+                //fileinfo: name, create, last, len,abspath
+                var finfo = [String:Any?]();
+                finfo["abspath"] = f.absoluteString;
+                finfo["name"] = f.pathComponents.last ?? "";
+                
+                let attr = try fileManager.attributesOfItem(atPath: f.absoluteURL.path)
+                finfo["len"] = attr[FileAttributeKey.size] as! Int64
+                finfo["create"] = attr[FileAttributeKey.creationDate] as? Date;
+                finfo["last"] = attr[FileAttributeKey.modificationDate] as? Date;
+                
+                
+                lst.append(finfo)
+            }
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+        
+        return lst
+    }
     
 }
 extension Data {
@@ -189,3 +218,5 @@ extension Data {
         }
     }
 }
+
+

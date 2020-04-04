@@ -164,11 +164,24 @@ class App21 : NSObject
     }
     
     
+    
+    
+    
+    
+    
+    
+    
     //MARK: - GET_DOWNLOADED
     @objc func GET_DOWNLOADED(result: Result) -> Void
     {
-        
+        result.data = JSON(DownloadFileTask().getlist());
+        result.success = true;
+        App21Result(result: result);
     }
+    
+    
+    
+    
     
     func paramsToDic(params: String?) -> [String:String]
     {
