@@ -33,7 +33,11 @@ class DownloadFileTask {
         
         let name = pref + ddMMyyyyHHmmss(date: Date()) + ext;
         let filename = getDocumentsDirectory().appendingPathComponent(name)
+        
+        //let path = filename.path
+        
         try? data!.write(to: filename)
+        //return "file://private/" + path
         return DownloadFileTask.toLocalSchemeUrl(filename.absoluteString)
     }
     
@@ -43,7 +47,7 @@ class DownloadFileTask {
         let s = str[index...]
         return replace + s;
     }
-    
+    //MARK: - (static)toLocalSchemeUrl
     static func toLocalSchemeUrl(_ filename: String) -> String {
        return replaceStartWith(str: filename, startWidth: "file://", replace: "local://")
     }
@@ -68,9 +72,10 @@ class DownloadFileTask {
     }
     
     
-    
-    func deletePath(path: String)
+    //MARK: deletePath
+    func deletePath(path: String) -> String
     {
+        
         let fn = path.split(separator: "/").last
         //let filename = getDocumentsDirectory().appendingPathComponent(fn);
         var fileUrl = self.getDocumentsDirectory()
@@ -81,10 +86,12 @@ class DownloadFileTask {
         // Delete 'hello.swift' file
 
         do {
-            try fileManager.removeItem(atPath: fileUrl.absoluteString)
+            try fileManager.removeItem(at: fileUrl)
+            return "";
         }
         catch let error as NSError {
-            print("Ooops! Something went wrong: \(error)")
+            NSLog(error.localizedDescription)
+            return error.localizedDescription
         }
     }
     
@@ -111,8 +118,29 @@ class DownloadFileTask {
         UserDefaults.standard.set(dic!, forKey: cachName);
     }
     
-    
+    //MARK: - clear
     func clear(param: String)  {
+        //nothing
+        let fileManager = FileManager.default
+        let documentsURL = self.getDocumentsDirectory()
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            // process files
+            for f in fileURLs
+            {
+                //fileinfo: name, create, last, len,abspath
+                do {
+                    try fileManager.removeItem(at: f)
+                   
+                }
+                catch let error as NSError {
+                    NSLog(error.localizedDescription)
+                    
+                }
+            }
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
         
     }
     
@@ -173,7 +201,7 @@ class DownloadFileTask {
             {
                 //fileinfo: name, create, last, len,abspath
                 var finfo = [String:Any?]();
-                finfo["abspath"] = f.absoluteString;
+                finfo["abspath"] = DownloadFileTask.toLocalSchemeUrl(f.absoluteString)
                 finfo["name"] = f.pathComponents.last ?? "";
                 
                 let attr = try fileManager.attributesOfItem(atPath: f.absoluteURL.path)

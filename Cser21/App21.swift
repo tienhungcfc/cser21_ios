@@ -180,6 +180,18 @@ class App21 : NSObject
     }
     
     
+    //MARK: - DELETE_FILE (result.result = 1 file)
+    @objc func DELETE_FILE(result: Result) -> Void
+    {
+        let mess = DownloadFileTask().deletePath(path: result.params!)
+        result.success = mess == "" ?  true : false;
+        if(mess != "")
+        {
+            result.error = mess;
+        }
+        App21Result(result: result);
+        
+    }
     
     
     
