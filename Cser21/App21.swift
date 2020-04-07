@@ -100,9 +100,6 @@ class App21 : NSObject
         DispatchQueue.main.async { // Correct
             self.caller.setBackground(params: result.params)
         }
-       
-    
-        
     }
     
     //MARK: - REBOOT
@@ -113,13 +110,12 @@ class App21 : NSObject
         
         let miliSecond = Int(result.params ?? "0") ?? 0;
         let s = miliSecond/1000;
-        
-        
-        
         DispatchQueue.main.asyncAfter(deadline:.now() + Double(s)) {
             self.caller.reloadStoryboard();
         }
     }
+    
+    
     
     
     //MARK: - CAMERA
@@ -153,6 +149,30 @@ class App21 : NSObject
  
     }
     
+    
+    //MARK: - LOCATION
+    @objc func LOCATION(result: Result) -> Void {
+        /*
+        result.success = true;
+        let loc21 = Loction21()
+        loc21.app21 = self
+        loc21.run(result: result)
+        */
+        caller.locationCallback = {(loc: CLLocationCoordinate2D?) in
+            result.success = loc != nil
+            if(loc != nil)
+            {
+                let d: [String: Double] = [
+                    "lat": loc!.latitude,
+                    "lng": loc!.longitude
+                ]
+                
+                result.data = JSON(d)
+            }
+            self.App21Result(result: result);
+        }
+        caller.requestLoction()
+    }
     
     //MARK: - DOWNLOAD
     @objc func DOWNLOAD(result: Result) -> Void

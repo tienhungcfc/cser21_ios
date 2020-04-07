@@ -9,13 +9,38 @@
 import UIKit
 import WebKit
 import Firebase
+import MapKit
+import CoreLocation
+class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognizerDelegate,CLLocationManagerDelegate   {
 
-class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognizerDelegate  {
-    //@IBOutlet weak var wv: WKWebView!
-    
-    
-    //@IBOutlet weak var wv: WKWebView!
-    
+    //MARK: - Location
+    let locationManager = CLLocationManager()
+    var locationCallback : ((CLLocationCoordinate2D?) -> Void)?
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else {
+            if(locationCallback != nil) {
+                locationCallback!(nil)
+            }
+            return
+            
+        }
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
+        if(locationCallback != nil) {
+            locationCallback!(locValue)
+        }
+    }
+    func requestLoction() -> Void {
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }else{
+           if(locationCallback != nil) {
+               locationCallback!(nil)
+           }
+        }
+    }
     
     @IBOutlet weak var uv: UIWebView!
     
