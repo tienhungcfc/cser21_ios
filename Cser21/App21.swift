@@ -275,6 +275,14 @@ class App21 : NSObject
     }
     
     
+    //MARK: - POST_TO_SERVER
+    @objc func POST_TO_SERVER(result: Result) -> Void
+    {
+        var p = PostFileToServer();
+        p.app21 = self;
+        p.execute(result: result);
+    }
+    
     
     func paramsToDic(params: String?) -> [String:String]
     {

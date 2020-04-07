@@ -71,6 +71,25 @@ class DownloadFileTask {
         }
     }
     
+    func getName(path: String) -> String {
+        let a = String(path.split(separator: "?").first!)
+        let name = String(a.split(separator: "/").last!)
+        return name
+    }
+    func localToData(filePath: String) -> Data{
+        let name = getName(path: filePath)
+        let path = getDocumentsDirectory().appendingPathComponent(name)
+        
+        let inp = InputStream(url: path)
+        do{
+            return  try Data(reading: inp!)
+        }catch{
+            //throw  Error21.runtimeError(error.localizedDescription)
+            NSLog(error.localizedDescription);
+            return Data.init(); //empty
+        }
+    }
+    
     
     //MARK: deletePath
     func deletePath(path: String) -> String
