@@ -111,12 +111,14 @@ class App21 : NSObject
         result.success = true;
         App21Result(result: result);
         
-        //rat kho restart app, chi reload webUI
-       DispatchQueue.main.async(execute: {
-            self.caller.reloadStoryboard();
-       })
-    
+        let miliSecond = Int(result.params ?? "0") ?? 0;
+        let s = miliSecond/1000;
         
+        
+        
+        DispatchQueue.main.asyncAfter(deadline:.now() + Double(s)) {
+            self.caller.reloadStoryboard();
+        }
     }
     
     
