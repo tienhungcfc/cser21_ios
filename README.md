@@ -9,7 +9,11 @@ for ios
 - Tạo filebase, copy file GoogleService-Info.Plist
 - Tạo Icon
 - Bật Push Notification
+
 #2. Copy các file sau từ code gốc:
+*.swift
+*.storyboard
+*.html
 
 
 #3. Info.plist 
