@@ -14,5 +14,5 @@ for ios
 
 #3. Info.plist 
 - copy các dòng Privacy từ Info.plist gốc
-
+- copy dòng: "View controller-based status bar appearance"
 #4. Run test, public
