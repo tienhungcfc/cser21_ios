@@ -57,5 +57,7 @@
 	<string>$(PRODUCT_NAME) location use</string>
 	<key>NSFileProviderDomainUsageDescription</key>
 	<string>$(PRODUCT_NAME) file use</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

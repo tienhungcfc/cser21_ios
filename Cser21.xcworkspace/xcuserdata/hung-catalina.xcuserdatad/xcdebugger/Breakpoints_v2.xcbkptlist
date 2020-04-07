@@ -62,9 +62,185 @@
             filePath = "Cser21/DownloadFileTask.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "clear(param:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "clear(param:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "348C61C9-6E3A-4FDC-BA42-E492F4AB7BAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "CLEAR_DOWNLOAD(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A5970BB-6B05-4C5F-AF24-D1828A922095"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "CLEAR_DOWNLOAD(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A5970BB-6B05-4C5F-AF24-D1828A922095 - ff9920c244de007"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cser21.App21.CLEAR_DOWNLOAD(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "6A5970BB-6B05-4C5F-AF24-D1828A922095 - 67b7158a8a480582"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Cser21.App21.CLEAR_DOWNLOAD(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A02ECF8-4DAE-47F9-B70E-8B2431F23F5C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "BASE64(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F75E3826-1227-47B2-983E-F9C25F07EAF8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "BASE64(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F75E3826-1227-47B2-983E-F9C25F07EAF8 - 51db6088476ea966"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cser21.App21.BASE64(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "F75E3826-1227-47B2-983E-F9C25F07EAF8 - a501c1420ea7d87a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Cser21.App21.BASE64(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A660F028-429B-44F9-BB24-3A84DF90CC61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "BASE64(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F98404F-87E4-4D91-AC6C-9568D6128505"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "setBackground(params:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39A2922A-1A80-443A-95D3-96FE461B8CF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "setBackground(params:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -119,28 +119,40 @@ class DownloadFileTask {
     }
     
     //MARK: - clear
-    func clear(param: String)  {
-        //nothing
-        let fileManager = FileManager.default
-        let documentsURL = self.getDocumentsDirectory()
-        do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            // process files
-            for f in fileURLs
-            {
-                //fileinfo: name, create, last, len,abspath
-                do {
-                    try fileManager.removeItem(at: f)
-                   
+    func clear(param: String, callback: @escaping (_ ok: String, _ error: String?) -> ())  {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let fileManager = FileManager.default
+            let documentsURL = self.getDocumentsDirectory()
+            var _error : String? = nil
+            do {
+                let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+                // process files
+                for f in fileURLs
+                {
+                    //fileinfo: name, create, last, len,abspath
+                    do {
+                        try fileManager.removeItem(at: f)
+                       
+                    }
+                    catch let error as NSError {
+                        NSLog(error.localizedDescription)
+                        
+                    }
                 }
-                catch let error as NSError {
-                    NSLog(error.localizedDescription)
-                    
-                }
+            } catch {
+                print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+                _error = error.localizedDescription
             }
-        } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+            // Bounce back to the main thread to update the UI
+            DispatchQueue.main.async {
+                callback("OK",_error);
+                
+            }
         }
+        
+        
+        
         
     }
     
@@ -217,6 +229,26 @@ class DownloadFileTask {
         }
         
         return lst
+    }
+    
+    
+    //MARK:
+    func toBase64(src: String?) -> String?
+    {
+       
+        
+        var b64: String? = nil
+        do{
+            var fn = src?.split(separator: "?").first
+            fn = fn?.split(separator: "/").last
+            var fileUrl = self.getDocumentsDirectory()
+            fileUrl.appendPathComponent("" + fn!)
+            let data =  try Data(contentsOf: fileUrl)
+            b64 = data.base64EncodedString()
+        }catch{
+            
+        }
+        return  b64;
     }
     
 }

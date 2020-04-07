@@ -25,36 +25,82 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     var os10:Bool = false;
     
     let domain = "https://cser.vn/";
-    let colorBrand = 0xff4e40;
+    
     let mtop = CGFloat(20);
+    
+    
+    // Preferred status bar style lightContent to use on dark background.
+    // Swift 3
+    var textStatusBarWhite = false
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        if #available(iOS 13.0, *) {
+            return textStatusBarWhite ? .lightContent : .darkContent
+        } else {
+            // Fallback on earlier versions
+            return textStatusBarWhite ? .lightContent : .default
+        }
+    }
+    func setBackground(params: String?) -> Void {
+        var outset = false
+        //
+        var p = params
+        if(p == nil)
+        {
+            p = getKey(keyName: "bgColor", value: "")
+        }else
+        {
+            outset = true
+        }
+        if(p == nil || p == "") {
+            return;
+        }
+        
+        let segs = p?.split(separator: ";")
+        let _v = String(segs![0]);
+        textStatusBarWhite = segs?.count ?? 0 > 1 && segs?[1] == "0"
+        let _setKey = segs?.count ?? 0 > 2 && segs?[2] == "1"
+        
+        if(_setKey && outset)
+        {
+            setKey(keyName: "bgColor", value: params!)
+        }
+        
+        if(wv != nil)
+        {
+            var color: UIColor? = nil
+            if #available(iOS 11.0, *) {
+                 color = _v.hasPrefix("#") ? UIColor(hex: _v) : UIColor(named: _v)
+            } else {
+                // Fallback on earlier versions
+            };
+            if(color != nil)
+            {
+                wv.backgroundColor = color!
+                view.backgroundColor = color!
+            }
+        }
+        
+        setNeedsStatusBarAppearanceUpdate()
+        let _ = preferredStatusBarStyle
+        setNeedsStatusBarAppearanceUpdate()
+        
+    }
+    
     /*
      for event: onTap,onPinch,onRotation,onSwipe,onPan,onEPan,onLongpress
      */
     func StrPoint(Point: CGPoint) -> String
     {
         
-        do
-        {
-            return "{\"x\":" + String(describing: Point.x) + ",\"y\":" + String(describing: Point.y) + "}"
-        }
-        catch
-        {
-            return "{}"
-        }
+        return "{\"x\":" + String(describing: Point.x) + ",\"y\":" + String(describing: Point.y) + "}"
         
     }
     func StrSize() -> String
     {
-        do
-        {
-            let s = os10 ? uv.bounds.size : wv.bounds.size
-            let statusBarHeight = UIApplication.shared.statusBarFrame.height
-            return "{\"width\":" + String(describing: s.width) + ",\"height\":" + String(describing: s.height - statusBarHeight ) + "}"
-        }
-        catch
-        {
-            return "{}"
-        }
+        let s = os10 ? uv.bounds.size : wv.bounds.size
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        return "{\"width\":" + String(describing: s.width) + ",\"height\":" + String(describing: s.height - statusBarHeight ) + "}"
     }
     func StrGestureState(state: UIGestureRecognizer.State) -> String
     {
@@ -72,8 +118,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             s = "failed"
         case UIGestureRecognizer.State.possible:
             s = "possible"
-        case UIGestureRecognizer.State.recognized:
-            s = "recognized"
+      
         default:
             s = ""
         }
@@ -152,7 +197,9 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     
     func getKey(keyName: String,value: String) -> String {
         let defaults = UserDefaults.standard
-        return defaults.string(forKey: keyName)!
+        let v = defaults.string(forKey: keyName)
+        
+        return v == nil ? value : v!
     }
     func setKey(keyName: String,value: String) -> Void {
         let defaults = UserDefaults.standard
@@ -427,6 +474,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             //
             
             wv = WKWebView(frame: frm, configuration: webConfiguration);
+            setBackground(params: nil);
             //view.backgroundColor = bg;
             view.addSubview(wv);
             wv.isOpaque = false;
@@ -533,6 +581,31 @@ extension UIColor{
             blue: CGFloat((value & 0x0000FF)) / 255.0,
             alpha: alpha
         )
+    }
+    convenience init?(hex: String) {
+        let r, g, b, a: CGFloat
+
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexColor = String(hex[start...])
+
+            if hexColor.count == 6 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff0000) >> 16) / 255
+                    g = CGFloat((hexNumber & 0x00ff00) >> 8) / 255
+                    b = CGFloat((hexNumber & 0x0000ff)) / 255
+                    a = 1// CGFloat(hexNumber & 0x000000ff) / 255
+
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+
+        return nil
     }
 }
 

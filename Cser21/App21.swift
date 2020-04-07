@@ -49,6 +49,7 @@ class App21 : NSObject
         
     }
     
+    //MARK: - call
     func call(jsonStr: String) -> Void {
         //
         
@@ -90,6 +91,20 @@ class App21 : NSObject
             App21Result(result: result);
         }
     }
+    
+    //MARK: - BACKGROUND
+    @objc func BACKGROUND(result: Result) -> Void {
+        //
+        result.success = true;
+        App21Result(result: result);
+        DispatchQueue.main.async { // Correct
+            self.caller.setBackground(params: result.params)
+        }
+       
+    
+        
+    }
+    
     //MARK: - REBOOT
     @objc func REBOOT(result: Result) -> Void {
         //
@@ -154,23 +169,47 @@ class App21 : NSObject
         }
     }
     
+    //MARK: - BASE64
+    @objc func BASE64(result: Result) -> Void
+    {
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+            let b64 = DownloadFileTask().toBase64(src: result.params)
+            result.success = b64 != nil ;
+            result.data = JSON(b64 as Any);
+           
+            // Bounce back to the main thread to update the UI
+            DispatchQueue.main.async {
+                 self.App21Result(result: result)
+            }
+        }
+        
+       
+        
+    }
+        
+    
+    
     
     //MARK: - CLEAR_DOWNLOAD
     @objc func CLEAR_DOWNLOAD(result: Result) -> Void
     {
-        DownloadFileTask().clear(param: result.params ?? "")
-        result.success = true;
-        App21Result(result: result);
+        DownloadFileTask().clear(param: result.params ?? "",callback: {(ok: String,error: String?) -> Void in
+            if(error != nil)
+            {
+                result.success = false;
+                result.error = error;
+            }else{
+                result.success = true;
+            }
+            
+            self.App21Result(result: result);
+        })
+       
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+
     //MARK: - GET_DOWNLOADED
     @objc func GET_DOWNLOADED(result: Result) -> Void
     {
