@@ -194,16 +194,36 @@ class App21 : NSObject
     //MARK: - BASE64
     @objc func BASE64(result: Result) -> Void
     {
+        
+        
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            
-            let b64 = DownloadFileTask().toBase64(src: result.params)
-            result.success = b64 != nil ;
-            result.data = JSON(b64 as Any);
-           
-            // Bounce back to the main thread to update the UI
-            DispatchQueue.main.async {
-                 self.App21Result(result: result)
+            do
+            {
+                let decoder = JSONDecoder()
+                
+                let rq = try decoder.decode(Base64Require.self, from: result.params!.data(using: .utf8)!)
+                
+                
+                let b64 = DownloadFileTask().toBase64(src: rq.path)
+                result.success = b64 != nil
+                // Bounce back to the main thread to update the UI
+                DispatchQueue.main.async {
+                    self.App21Result(result: result)
+                    self.caller.evalJs(str: rq.callback! + "('" + b64! + "')")
+                }
+                
+                
+            }catch{
+                result.success = false
+                result.error = error.localizedDescription
+                // Bounce back to the main thread to update the UI
+                DispatchQueue.main.async {
+                     self.App21Result(result: result)
+                }
             }
+           
+            
         }
         
        
@@ -383,7 +403,10 @@ enum Error21 : Error {
    case runtimeError(String)
 }
 
-
+class Base64Require : Codable{
+    var path: String?;
+    var callback: String?;
+}
 
 
 

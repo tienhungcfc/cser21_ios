@@ -173,31 +173,37 @@ class DownloadFileTask {
             return (documentsURL, [.removePreviousFile])
         }
         
-        manager.download(URL(string: src)!, to: destination)
-            
-            .downloadProgress(queue: .main, closure: { (progress) in
-                //progress closure
-                print(progress.fractionCompleted)
-            })
-            .validate { request, response, temporaryURL, destinationURL in
-                // Custom evaluation closure now includes file URLs (allows you to parse out error messages if necessary)
+        let url = URL(string: src)
+        if(url == nil){
+            fail("URL Wrong format")
+            return
+        }
+        
+        manager.download(url!, to: destination)
+        
+        .downloadProgress(queue: .main, closure: { (progress) in
+            //progress closure
+            print(progress.fractionCompleted)
+        })
+        .validate { request, response, temporaryURL, destinationURL in
+            // Custom evaluation closure now includes file URLs (allows you to parse out error messages if necessary)
+            //GlobalData.sharedInstance.dismissLoader()
+            return .success
+        }
+        
+        .responseData { response in
+            if let destinationUrl = response.destinationURL {
+                print(destinationUrl)
+                
+                let local = response.destinationURL!.absoluteString;
+                self.setCache(url: src, localPath: local)
+                success(local)
+               
+            } else {
                 //GlobalData.sharedInstance.dismissLoader()
-                return .success
+                fail("LOI")
             }
-            
-            .responseData { response in
-                if let destinationUrl = response.destinationURL {
-                    print(destinationUrl)
-                    
-                    let local = response.destinationURL!.absoluteString;
-                    self.setCache(url: src, localPath: local)
-                    success(local)
-                   
-                } else {
-                    //GlobalData.sharedInstance.dismissLoader()
-                    fail("LOI")
-                }
-            }
+        }
     }
    
     //MARK: - getlist
@@ -232,7 +238,7 @@ class DownloadFileTask {
     }
     
     
-    //MARK:
+    //MARK: - toBase64
     func toBase64(src: String?) -> String?
     {
        
