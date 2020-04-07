@@ -283,6 +283,13 @@ class App21 : NSObject
         p.execute(result: result);
     }
     
+    //MARK: - IMAGE_ROTATE
+    @objc func IMAGE_ROTATE(result: Result) -> Void
+    {
+        var iu = ImageUtil();
+        iu.app21 = self;
+        iu.execute(result: result);
+    }
     
     func paramsToDic(params: String?) -> [String:String]
     {
