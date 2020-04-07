@@ -11,9 +11,9 @@ for ios
 - Bật Push Notification
 
 #2. Copy các file sau từ code gốc:
-*.swift
-*.storyboard
-*.html
+- *.swift 
+- *.storyboard 
+- *.html
 
 
 #3. Info.plist 
