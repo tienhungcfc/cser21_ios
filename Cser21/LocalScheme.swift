@@ -33,7 +33,8 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
         }
         
         // Extract the required file name from the request.
-        let urlString = url.absoluteString
+        let urlString = String( url.absoluteString.split(separator: "?").first!)
+        
         let index = urlString.index(urlString.startIndex, offsetBy: "local://".count)
         let file = String(urlString[index..<urlString.endIndex])
         //let path = (file as NSString).deletingPathExtension

@@ -20,7 +20,8 @@ class ImageUtil{
                 let data = d.localToData(filePath: info.path)
                 
                 let image = UIImage(data: data)
-                let _image = image?.rotate(radians: CGFloat(info.degrees))
+                //let _image = image?.rotate(radians: CGFloat(info.degrees) * CGFloat(Double.pi) / 180 )
+                let _image = image?.rotate(radians: Float(info.degrees) * Float(Double.pi) / 180 )
                
                 let ext = String( d.getName(path: info.path).split(separator: ".").last!).lowercased()
                
@@ -30,10 +31,13 @@ class ImageUtil{
                 
                 //let path = filename.path
                 
-                try? _data!.write(to: filename)
-                
-                result.success = true;
-               
+                //try _data!.write(to: filename)
+                let e =  try self.dataToFile(data: _data!, path: filename)
+                result.success = e == nil ;
+                if(e != nil)
+                {
+                    result.error = e?.localizedDescription;
+                }
                 self.app21?.App21Result(result: result)
             }
             catch{
@@ -44,6 +48,16 @@ class ImageUtil{
         })
         
     }
+    
+    func dataToFile(data: Data, path: URL)  throws -> Error? {
+        do{
+            try data.write(to: path)
+            return nil
+        }
+        catch{
+            return error
+        }
+    }
 }
 
 class ImageUtilInfo : Codable{
@@ -51,24 +65,26 @@ class ImageUtilInfo : Codable{
     var path: String = ""
 }
 extension UIImage {
-    func rotate(radians: CGFloat) -> UIImage {
-        let rotatedSize = CGRect(origin: .zero, size: size)
-            .applying(CGAffineTransform(rotationAngle: CGFloat(radians)))
-            .integral.size
-        UIGraphicsBeginImageContext(rotatedSize)
-        if let context = UIGraphicsGetCurrentContext() {
-            let origin = CGPoint(x: rotatedSize.width / 2.0,
-                                 y: rotatedSize.height / 2.0)
-            context.translateBy(x: origin.x, y: origin.y)
-            context.rotate(by: radians)
-            draw(in: CGRect(x: -origin.y, y: -origin.x,
-                            width: size.width, height: size.height))
-            let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
+    
+    func rotate(radians: Float) -> UIImage? {
+        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
+        // Trim off the extremely small float value to prevent core graphics from rounding it up
+        newSize.width = floor(newSize.width)
+        newSize.height = floor(newSize.height)
 
-            return rotatedImage ?? self
-        }
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
 
-        return self
+        // Move origin to middle
+        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+        // Rotate around middle
+        context.rotate(by: CGFloat(radians))
+        // Draw the image at its center
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
     }
 }
