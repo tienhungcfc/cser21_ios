@@ -78,8 +78,8 @@
             filePath = "Cser21/App21.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "CLEAR_DOWNLOAD(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,42 +94,10 @@
             filePath = "Cser21/App21.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "CLEAR_DOWNLOAD(result:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6A5970BB-6B05-4C5F-AF24-D1828A922095 - ff9920c244de007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cser21.App21.CLEAR_DOWNLOAD(result: Cser21.Result) -&gt; ()"
-                  moduleName = "Cser21"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  uuid = "6A5970BB-6B05-4C5F-AF24-D1828A922095 - 67b7158a8a480582"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Cser21.App21.CLEAR_DOWNLOAD(result: Cser21.Result) -&gt; ()"
-                  moduleName = "Cser21"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "240"
-                  endingLineNumber = "240"
-                  offsetFromSymbolStart = "208">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -610,6 +578,54 @@
             endingLineNumber = "36"
             landmarkName = "webView(_:start:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5672FF53-BA61-46B1-B6C2-8F5BA4E65C09"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "CAMERA(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5672FF53-BA61-46B1-B6C2-8F5BA4E65C09 - 99c804405b7a4482"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cser21.App21.CAMERA(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "5672FF53-BA61-46B1-B6C2-8F5BA4E65C09 - d6f63023a34e0596"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Cser21.App21.CAMERA(result: Cser21.Result) -&gt; ()"
+                  moduleName = "Cser21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hung-catalina/Desktop/App/cser21_ios/Cser21/App21.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

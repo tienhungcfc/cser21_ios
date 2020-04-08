@@ -10,7 +10,7 @@ import Foundation
 class ImageUtil{
     var app21: App21? = nil
     func execute(result: Result) -> Void {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.global().async(execute: {
             
             do{
                 let d = DownloadFileTask();

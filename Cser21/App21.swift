@@ -194,10 +194,7 @@ class App21 : NSObject
     //MARK: - BASE64
     @objc func BASE64(result: Result) -> Void
     {
-        
-        
-        
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global().async {
             do
             {
                 let decoder = JSONDecoder()
@@ -222,8 +219,6 @@ class App21 : NSObject
                      self.App21Result(result: result)
                 }
             }
-           
-            
         }
         
        
