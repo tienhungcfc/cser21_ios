@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1087460686681-i2md1hojn4vd1qh86cgjsfkhq2th23a9.apps.googleusercontent.com</string>
+	<string>1087460686681-132u46qa9jajbinkh9oidgdmprlkmtrl.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1087460686681-i2md1hojn4vd1qh86cgjsfkhq2th23a9</string>
+	<string>com.googleusercontent.apps.1087460686681-132u46qa9jajbinkh9oidgdmprlkmtrl</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD6PGvjhwMbSq1zjUKZUu5iR-rItoLo-9I</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>vn.cser</string>
+	<string>vn.cser211</string>
 	<key>PROJECT_ID</key>
 	<string>cser-d0ce7</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1087460686681:ios:bfbca1448b9ae94d</string>
+	<string>1:1087460686681:ios:526d00940a0de303f3aa48</string>
 	<key>DATABASE_URL</key>
 	<string>https://cser-d0ce7.firebaseio.com</string>
 </dict>

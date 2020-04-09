@@ -352,6 +352,64 @@ class App21 : NSObject
         case camera, video, photoLibrary
     }
     
+    
+    //MARK: - NOTI
+    @objc func NOTI(result: Result) -> Void
+    {
+        do{
+            let decoder = JSONDecoder()
+            let noti21 = try decoder.decode(Noti21.self, from: result.params!.data(using: .utf8)!)
+            
+            
+            let svn = SERVER_NOTI();
+            svn.app21 = self;
+            svn.noti(noti21: noti21)
+            result.success = true
+        }
+        catch{
+            result.success = false
+            result.error = error.localizedDescription
+            
+        }
+        self.App21Result(result: result)
+        
+    }
+    
+    
+    //MARK: - NOTI_DATA
+    @objc func NOTI_DATA(result: Result) -> Void
+    {
+        let data =  UserDefaults.standard.dictionary(forKey: "NotifedData");
+        var d = [String:String]()
+        
+        if(data != nil){
+            for (k,v) in data!{
+                
+                
+                if let b = v as? String,let a = k as? String {
+                    d[a] = b
+                }
+                else {
+                    // obj is not a string array
+                }
+                
+               
+            }
+        }
+        
+        
+        result.data = JSON(d);
+        result.success = true
+        App21Result(result: result)
+        
+    }
+    
+    //MARK: - GET_SERVER_NOTI
+    @objc func GET_SERVER_NOTI(result: Result) -> Void{
+        SERVER_NOTI().run(result: result, callback: { () in
+            
+        })
+    }
 }
 
 //MARK: - Result

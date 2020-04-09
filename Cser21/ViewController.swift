@@ -506,14 +506,52 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             //wv.backgroundColor = bg;
             os10 = false;
             
+            //
+            
             
         } else {
             os10 = true;
             uv.delegate = self
         }
         
+        //
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(applicationDidBecomeActive),
+        name: UIApplication.didBecomeActiveNotification,
+        object: nil)
+        
+        //
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(applicationDidEnterBackground),
+        name: UIApplication.didEnterBackgroundNotification,
+        object: nil)
+        
+        /*
+         * for: NewNotification see in AppDelegate
+         */
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotificationClick) , name: NSNotification.Name(rawValue: "NotificationClick"), object: nil)
     }
     
+    //MARK: - DidBecomeActive
+    @objc func applicationDidBecomeActive()
+    {
+        evalJs(str: "AppResume({\"sourceIOS\":\"BecomeActive\"})")
+    }
+    
+    //MARK: - onNotificationClick
+    @objc func onNotificationClick()
+    {
+        evalJs(str: "AppResume({\"sourceIOS\":\"NotificationClick\"})")
+    }
+    
+    //MARK: - DidEnterBackground
+    @objc func applicationDidEnterBackground()
+    {
+        
+        evalJs(str: "AppPause()")
+    }
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -525,9 +563,10 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             // for ex. UIStackView
             ios10()
         }
-        
-        
     }
+    
+    
+   
     
     
     override func didReceiveMemoryWarning() {
