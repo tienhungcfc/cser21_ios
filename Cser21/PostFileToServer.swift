@@ -14,7 +14,6 @@ class PostFileToServer{
         
         do{
             let decoder = JSONDecoder()
-            
             let pinfo = try decoder.decode(PostInfo.self, from: result.params!.data(using: .utf8)!)
             
             let url = pinfo.server ?? "" /* your API url */

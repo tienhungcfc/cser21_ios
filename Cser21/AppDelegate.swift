@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         UserDefaults.standard.set(notification.request.content.userInfo, forKey: "NotifedData")
         
         //
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationClick") , object: nil, userInfo: notification.request.content.userInfo)
+        
        
         completionHandler([.alert,.sound])
     }

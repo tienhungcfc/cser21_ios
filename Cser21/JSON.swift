@@ -1386,3 +1386,19 @@ extension JSON: Codable {
         }
     }
 }
+
+//
+extension JSON
+{
+    static func parse<T>(_ type: T.Type, from: String)  -> (T?,String?) where T : Decodable
+    {
+        do
+        {
+            let decoder = JSONDecoder()
+            return try (decoder.decode(type, from: from.data(using: .utf8)!), nil)
+        }
+        catch{
+            return (nil, error.localizedDescription)
+        }
+    }
+}

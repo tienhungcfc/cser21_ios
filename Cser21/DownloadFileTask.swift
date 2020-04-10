@@ -215,7 +215,7 @@ class DownloadFileTask {
                 print(destinationUrl)
                 
                 let local = response.destinationURL!.absoluteString;
-                self.setCache(url: src, localPath: local)
+                //self.setCache(url: src, localPath: local)
                 success(local)
                
             } else {

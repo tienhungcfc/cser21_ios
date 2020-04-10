@@ -8,13 +8,31 @@
 
 import Foundation
 import UserNotifications
-
+import Alamofire
 class SERVER_NOTI{
     var app21: App21?
+    
+    func toUrlWithsParams(url: String, params: [String:String]) -> String {
+        var j = url.contains("?")  ?  "&" : "?";
+        var c = "";
+        var s = url ;
+        
+        for (k,v) in params
+        {
+            if(j != "")
+            {
+                s += j;
+                j = "";
+            }
+            s += c + k + "=" + v;
+            c = "&";
+        }
+        
+        return  s;
+    }
+    
+    //MARK: - noti
     func noti(noti21: Noti21) -> Void {
-        //
-        
-        
         //
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert,.sound]) { (granted, error) in
@@ -63,7 +81,7 @@ class SERVER_NOTI{
             trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent , repeats: false)
             
         }
-       
+        
         //
         let uuid = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
@@ -91,13 +109,59 @@ class SERVER_NOTI{
         return nil
     }
     
-    func run(result: Result, callback: @escaping () -> ()) -> Void{
-        
+    func run(result: Result, callback: @escaping (Error?) -> ()) -> Void{
+        do{
+            let decoder = JSONDecoder()
+            let config = try decoder.decode(SERVER_NOTI_Config.self, from: result.params!.data(using: .utf8)!)
+            runBackground(config: config, callback: callback)
+        }
+        catch{
+            callback(error)
+        }
     }
+    
+    //MARK: - runBackground
+    func runBackground(config: SERVER_NOTI_Config,callback: @escaping (Error?) -> () ) -> Void {
+        do{
+            let url = URL(string: toUrlWithsParams(url: config.server, params: config.serverParams!))
+            let text = try String(contentsOf: url!, encoding: .utf8)
+            
+            
+            let parser = JSON.parse(Response.self, from: text)
+            if(parser.1 != nil)
+            {
+                throw Error21.runtimeError(parser.1!)
+            }
+            
+            let rsp =  parser.0 ?? Response()
+            
+            let data = rsp.data ?? ResponseData()
+            let notis = data.notis ?? [Noti21]()
+            for noti21 in notis{
+                noti(noti21: noti21!)
+            }
+            
+             callback(nil)
+        }catch{
+            NSLog("AAAA:" + error.localizedDescription)
+            callback(error)
+        }
+    }
+    
+    
 }
 class SERVER_NOTI_Config : Codable{
     var  enable: Bool = false;
     var  intervalMillis: Int = 1000 * 60 * 15;
     var  server: String = "";
     var  serverParams: [String:String]? = nil;
+}
+class ResponseData : Codable {
+    var notis: [Noti21?]? = nil
+}
+class Response : Codable {
+    var  success: Bool = false
+    var  data: ResponseData?
+    
+    
 }
