@@ -334,16 +334,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     
     func open_link(url : String) ->  Void {
         //NSLog(url)
-        if #available(iOS 11.0, *) {
-            // or use some work around
-            guard let _url = URL(string: url) else { return }
-            UIApplication.shared.open(_url)
-        }else
-            {
-            // for ex. UIStackView
-                guard let _url = URL(string: url) else { return }
-                UIApplication.shared.openURL(_url);
-        }
+       guard let _url = URL(string: url) else { return }
+       UIApplication.shared.open(_url)
     }
     /*
      Nhan thong bao tu web

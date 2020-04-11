@@ -274,7 +274,7 @@ class App21 : NSObject
     //MARK: - POST_TO_SERVER
     @objc func POST_TO_SERVER(result: Result) -> Void
     {
-        var p = PostFileToServer();
+        let p = PostFileToServer();
         p.app21 = self;
         p.execute(result: result);
     }
@@ -282,7 +282,7 @@ class App21 : NSObject
     //MARK: - IMAGE_ROTATE
     @objc func IMAGE_ROTATE(result: Result) -> Void
     {
-        var iu = ImageUtil();
+        let iu = ImageUtil();
         iu.app21 = self;
         iu.execute(result: result);
     }
@@ -395,9 +395,9 @@ class App21 : NSObject
                 if(data != nil){
                     for (k,v) in data!{
                         
-                        let a = k as? String
+                        let a = k
                         if let b = v as? String {
-                            d[a!] = b
+                            d[a] = b
                         }
                         else {
                             // nothing to do
@@ -464,7 +464,7 @@ class App21 : NSObject
         // Fetch data once an hour.
         // UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
         
-        var parser = JSON.parse(SERVER_NOTI_Config.self, from: result.params!);
+        let parser = JSON.parse(SERVER_NOTI_Config.self, from: result.params!);
         
         if(parser.0 != nil)
         {
@@ -475,6 +475,17 @@ class App21 : NSObject
         App21Result(result: result)
     }
     
+    
+    //MARK: - BROWSER
+    @objc func BROWSER(result: Result) -> Void{
+        
+        if(result.params != "" && result.params != nil)
+        {
+            caller.open_link(url: result.params!)
+        }
+        
+        App21Result(result: result)
+    }
 }
 
 //MARK: - class:Result

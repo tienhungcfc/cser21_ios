@@ -10,17 +10,29 @@ import Foundation
 
 extension Int{
     func parseDicKey(data: [String:String]?, key: String, df: Int) ->  Int {
-        do{
-            if data == nil {
-                return df
-            }
-            let v = data![key]
-            if v == nil {
-                return df
-            }
-            return  Int(String(v!))!
-        }catch{
+        if data == nil {
             return df
         }
+        let v = data![key]
+        if v == nil {
+            return df
+        }
+        return  Int(String(v!))!
+    }
+    func parseAny(any: Any?) -> Int
+    {
+        let a = any as? Int
+        if(a != nil){
+            return a!
+        }
+        let s = any as! String?
+        if(s != nil)
+        {
+            let b = Int(s!)
+            if(b != nil){
+                return b!
+            }
+        }
+        return 0;
     }
 }

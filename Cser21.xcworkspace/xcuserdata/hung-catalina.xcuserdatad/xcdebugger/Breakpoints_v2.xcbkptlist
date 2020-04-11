@@ -616,7 +616,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5672FF53-BA61-46B1-B6C2-8F5BA4E65C09"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cser21/App21.swift"
@@ -842,8 +842,8 @@
             filePath = "Cser21/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "loadView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -899,16 +899,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3488EC58-9F47-445D-94AC-87DA29B8E867"
+            uuid = "5D8088EB-D7F4-43E1-9FFE-1983DD20DDC8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cser21/App21.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
-            landmarkName = "ALARM_NOTI(result:)"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
+            landmarkName = "BROWSER(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB9D2C55-979E-4D96-A380-152E4DB14A79"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cser21/App21.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "call(jsonStr:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

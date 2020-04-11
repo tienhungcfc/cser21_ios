@@ -40,7 +40,7 @@ class PostFileToServer{
                    
                     upload.responseString { (rsp: DataResponse<String>) in
                         result.success = true;
-                        result.data = JSON(rsp.value)
+                        result.data = JSON(rsp.value!)
                         self.app21?.App21Result(result: result)
                     }
                     
