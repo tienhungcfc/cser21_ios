@@ -22,19 +22,14 @@ class Noti21 : Codable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         notification = try values.decode(Notification21.self, forKey: .notification)
-        
-        
         if( values.contains(CodingKeys.data))
         {
             data = [String:String]()
             let d = try values.decode([String: EveryThing].self, forKey: .data)
             for (k, v) in d{
                 // data![k] = try  v.value?.decode(String.self)
-                
                 data![k] =  String(describing: v.value!)
-               
             }
-            print(JSON(data))
         }
         
     }
@@ -42,7 +37,6 @@ class Noti21 : Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(notification, forKey: .notification)
         var _data = [String:String?]()
-        
         for (k, v) in data ?? [String:Any?](){
             _data[k] = v as? String?
         }
@@ -54,6 +48,7 @@ class Notification21: Codable
     var title: String?
     var body: String?
     var sound: String?
+    var subtitle: String?
     
 }
 class EveryThing: Codable

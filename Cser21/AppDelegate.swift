@@ -37,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         */
         FirebaseApp.configure()
         
-        
+        // "Khó cấu hình nên fixed cứng" - 60(s) * 15
+        UIApplication.shared.setMinimumBackgroundFetchInterval(60 * 15)
         
         return true
     }
@@ -125,6 +126,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         UIApplication.shared.registerForRemoteNotifications()
     }
  
+ 
+    //MARK: - background
+   
+        
+    func application(_ application: UIApplication,
+                     performFetchWithCompletionHandler completionHandler:
+                     @escaping (UIBackgroundFetchResult) -> Void) {
+       // Check for new data.
+        //SERVER_NOTI().runBackground(config: <#T##SERVER_NOTI_Config#>, callback: <#T##(Error?) -> ()#>)
+        
+       SERVER_NOTI().runBackgroundFetch()
+        
+       completionHandler(.noData)
+    }
     
 }
 

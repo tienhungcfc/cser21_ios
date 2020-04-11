@@ -42,7 +42,7 @@ class SERVER_NOTI{
         let content = UNMutableNotificationContent()
         content.title = (noti21.notification?.title!)!
         content.body = (noti21.notification?.body!)! as String
-        
+        content.subtitle = (noti21.notification?.subtitle!)! as String
         content.userInfo = [String:String]()
         if((noti21.data) != nil){
             for item in noti21.data! {
@@ -123,6 +123,12 @@ class SERVER_NOTI{
     //MARK: - runBackground
     func runBackground(config: SERVER_NOTI_Config,callback: @escaping (Error?) -> () ) -> Void {
         do{
+            
+            if(!config.enable)
+            {
+                return
+            }
+            
             let url = URL(string: toUrlWithsParams(url: config.server, params: config.serverParams!))
             let text = try String(contentsOf: url!, encoding: .utf8)
             
@@ -148,6 +154,25 @@ class SERVER_NOTI{
         }
     }
     
+    static let BackgroundFetchConfig = "BackgroundFetchConfig"
+    
+    //MARK: - runBackgroundFetch
+    func runBackgroundFetch() -> Void {
+        let _config = UserDefaults.standard.string(forKey: SERVER_NOTI.BackgroundFetchConfig)
+        if(_config != nil && _config != "")
+        {
+            
+            let parser = JSON.parse(SERVER_NOTI_Config.self, from: _config!);
+            
+            if(parser.0 != nil)
+            {
+                runBackground(config: parser.0!) { (error) in
+                    
+                }
+            }
+        }
+        
+    }
     
 }
 class SERVER_NOTI_Config : Codable{

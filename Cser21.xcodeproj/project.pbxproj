@@ -19,11 +19,6 @@
 		18D8AD4D243DB15600976BF4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8AD4C243DB15600976BF4 /* extension.swift */; };
 		18DED9D1243D7745001771B2 /* Noti21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DED9D0243D7745001771B2 /* Noti21.swift */; };
 		18DED9D3243D783B001771B2 /* SERVER_NOTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DED9D2243D783B001771B2 /* SERVER_NOTI.swift */; };
-		18FD3A9D243EE9B900FBC337 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D8AD63243DC8C300976BF4 /* UserNotifications.framework */; };
-		18FD3A9E243EE9B900FBC337 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D8AD65243DC8C300976BF4 /* UserNotificationsUI.framework */; };
-		18FD3AA1243EE9B900FBC337 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD3AA0243EE9B900FBC337 /* NotificationViewController.swift */; };
-		18FD3AA4243EE9B900FBC337 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FD3AA2243EE9B900FBC337 /* MainInterface.storyboard */; };
-		18FD3AA8243EE9B900FBC337 /* Content.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 18FD3A9C243EE9B900FBC337 /* Content.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349088F6241B874A004AD9A0 /* GoogleService-Info.plist */; };
 		349088FA241B8A3D004AD9A0 /* embed.html in Resources */ = {isa = PBXBuildFile; fileRef = 349088F9241B8A3D004AD9A0 /* embed.html */; };
 		34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B77786241B82EA00787FE3 /* AppDelegate.swift */; };
@@ -45,13 +40,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 18B2C722243ECE8A00F0A9BA;
 			remoteInfo = Service;
-		};
-		18FD3AA6243EE9B900FBC337 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34B7777B241B82EA00787FE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 18FD3A9B243EE9B900FBC337;
-			remoteInfo = Content;
 		};
 		34B77798241B82EB00787FE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -76,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				18FD3AA8243EE9B900FBC337 /* Content.appex in Embed App Extensions */,
 				18B2C72A243ECE8A00F0A9BA /* Service.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -100,10 +87,6 @@
 		18D8AD65243DC8C300976BF4 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		18DED9D0243D7745001771B2 /* Noti21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti21.swift; sourceTree = "<group>"; };
 		18DED9D2243D783B001771B2 /* SERVER_NOTI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SERVER_NOTI.swift; sourceTree = "<group>"; };
-		18FD3A9C243EE9B900FBC337 /* Content.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Content.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		18FD3AA0243EE9B900FBC337 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		18FD3AA3243EE9B900FBC337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		18FD3AA5243EE9B900FBC337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349088F6241B874A004AD9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		349088F8241B88A9004AD9A0 /* Cser21.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cser21.entitlements; sourceTree = "<group>"; };
 		349088F9241B8A3D004AD9A0 /* embed.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = embed.html; sourceTree = SOURCE_ROOT; };
@@ -136,15 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		18FD3A99243EE9B900FBC337 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18FD3A9E243EE9B900FBC337 /* UserNotificationsUI.framework in Frameworks */,
-				18FD3A9D243EE9B900FBC337 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,16 +158,6 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		18FD3A9F243EE9B900FBC337 /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				18FD3AA0243EE9B900FBC337 /* NotificationViewController.swift */,
-				18FD3AA2243EE9B900FBC337 /* MainInterface.storyboard */,
-				18FD3AA5243EE9B900FBC337 /* Info.plist */,
-			);
-			path = Content;
-			sourceTree = "<group>";
-		};
 		2F1B0E133022B661D223817B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +178,6 @@
 				34B7779A241B82EB00787FE3 /* Cser21Tests */,
 				34B777A5241B82EB00787FE3 /* Cser21UITests */,
 				18B2C724243ECE8A00F0A9BA /* Service */,
-				18FD3A9F243EE9B900FBC337 /* Content */,
 				34B77784241B82EA00787FE3 /* Products */,
 				2F1B0E133022B661D223817B /* Pods */,
 				BB12C00E7D00844D8DDDB9AA /* Frameworks */,
@@ -228,7 +191,6 @@
 				34B77797241B82EB00787FE3 /* Cser21Tests.xctest */,
 				34B777A2241B82EB00787FE3 /* Cser21UITests.xctest */,
 				18B2C723243ECE8A00F0A9BA /* Service.appex */,
-				18FD3A9C243EE9B900FBC337 /* Content.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,23 +271,6 @@
 			productReference = 18B2C723243ECE8A00F0A9BA /* Service.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		18FD3A9B243EE9B900FBC337 /* Content */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 18FD3AAB243EE9B900FBC337 /* Build configuration list for PBXNativeTarget "Content" */;
-			buildPhases = (
-				18FD3A98243EE9B900FBC337 /* Sources */,
-				18FD3A99243EE9B900FBC337 /* Frameworks */,
-				18FD3A9A243EE9B900FBC337 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Content;
-			productName = Content;
-			productReference = 18FD3A9C243EE9B900FBC337 /* Content.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		34B77782241B82EA00787FE3 /* Cser21 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34B777AB241B82EB00787FE3 /* Build configuration list for PBXNativeTarget "Cser21" */;
@@ -341,7 +286,6 @@
 			);
 			dependencies = (
 				18B2C729243ECE8A00F0A9BA /* PBXTargetDependency */,
-				18FD3AA7243EE9B900FBC337 /* PBXTargetDependency */,
 			);
 			name = Cser21;
 			productName = Cser21;
@@ -399,9 +343,6 @@
 					18B2C722243ECE8A00F0A9BA = {
 						CreatedOnToolsVersion = 11.4;
 					};
-					18FD3A9B243EE9B900FBC337 = {
-						CreatedOnToolsVersion = 11.4;
-					};
 					34B77782241B82EA00787FE3 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -437,7 +378,6 @@
 				34B77796241B82EB00787FE3 /* Cser21Tests */,
 				34B777A1241B82EB00787FE3 /* Cser21UITests */,
 				18B2C722243ECE8A00F0A9BA /* Service */,
-				18FD3A9B243EE9B900FBC337 /* Content */,
 			);
 		};
 /* End PBXProject section */
@@ -447,14 +387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		18FD3A9A243EE9B900FBC337 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18FD3AA4243EE9B900FBC337 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,14 +513,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18FD3A98243EE9B900FBC337 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18FD3AA1243EE9B900FBC337 /* NotificationViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		34B7777F241B82EA00787FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,11 +556,6 @@
 			target = 18B2C722243ECE8A00F0A9BA /* Service */;
 			targetProxy = 18B2C728243ECE8A00F0A9BA /* PBXContainerItemProxy */;
 		};
-		18FD3AA7243EE9B900FBC337 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 18FD3A9B243EE9B900FBC337 /* Content */;
-			targetProxy = 18FD3AA6243EE9B900FBC337 /* PBXContainerItemProxy */;
-		};
 		34B77799241B82EB00787FE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 34B77782241B82EA00787FE3 /* Cser21 */;
@@ -650,14 +569,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		18FD3AA2243EE9B900FBC337 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18FD3AA3243EE9B900FBC337 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		34B7778A241B82EA00787FE3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -710,46 +621,6 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.cser211.Service;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		18FD3AA9243EE9B900FBC337 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
-				INFOPLIST_FILE = Content/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vn.cser211.Content;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		18FD3AAA243EE9B900FBC337 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMB3FFUW92;
-				INFOPLIST_FILE = Content/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vn.cser211.Content;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1011,15 +882,6 @@
 			buildConfigurations = (
 				18B2C72C243ECE8A00F0A9BA /* Debug */,
 				18B2C72D243ECE8A00F0A9BA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		18FD3AAB243EE9B900FBC337 /* Build configuration list for PBXNativeTarget "Content" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				18FD3AA9243EE9B900FBC337 /* Debug */,
-				18FD3AAA243EE9B900FBC337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

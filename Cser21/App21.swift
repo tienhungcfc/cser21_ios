@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 import Photos
+import AudioToolbox
 
 class App21 : NSObject
 {
@@ -430,9 +431,53 @@ class App21 : NSObject
             self.App21Result(result: result)
         })
     }
+    
+    
+    //MARK: - VIBRATOR
+    @objc func VIBRATOR(result: Result) -> Void{
+        AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) { }
+        result.success = true;
+        App21Result(result: result)
+    }
+    
+    
+    //MARK: - SEND_SMS
+    @objc func SEND_SMS(result: Result) -> Void{
+        
+        result.success = false;
+        result.error = "NO_SUPPORT";
+        App21Result(result: result)
+    }
+    
+    
+    //MARK: - GET_PHONE
+    @objc func GET_PHONE(result: Result) -> Void{
+        result.success = false;
+        result.error = "NO_SUPPORT";
+        App21Result(result: result)
+    }
+    
+    
+    //MARK: - ALARM_NOTI
+    @objc func ALARM_NOTI(result: Result) -> Void{
+        
+        // Fetch data once an hour.
+        // UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+        
+        var parser = JSON.parse(SERVER_NOTI_Config.self, from: result.params!);
+        
+        if(parser.0 != nil)
+        {
+            UserDefaults.standard.set(result.params, forKey: SERVER_NOTI.BackgroundFetchConfig)
+        }
+        result.success = parser.1 == nil;
+        result.error = parser.1;
+        App21Result(result: result)
+    }
+    
 }
 
-//MARK: - Result
+//MARK: - class:Result
 class Result : NSObject {
     var success = true
     var data: JSON? = nil
