@@ -486,6 +486,22 @@ class App21 : NSObject
         
         App21Result(result: result)
     }
+    
+    //MARK: - MOTION_SHAKE
+    @objc func MOTION_SHAKE(result: Result) -> Void{
+        
+        DispatchQueue.main.async(execute: {
+            self.caller.isMotionShake = true
+            self.caller.becomeFirstResponder() // To get shake gesture
+            self.caller.motionShakeCallback = {(_ motion: UIEvent.EventSubtype, event: UIEvent?)  in
+                self.caller.isMotionShake = false
+                result.data = JSON(motion.rawValue)
+                self.App21Result(result: result)
+            }
+        })
+        
+        
+    }
 }
 
 //MARK: - class:Result
