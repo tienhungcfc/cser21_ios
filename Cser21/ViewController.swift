@@ -417,7 +417,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
         // Do any additional setup after loading the view, typically from a nib.
         
         // load embed.html
-        if let path = Bundle.main.path(forResource: "embed", ofType: "html"){
+        if let path = Bundle.main.path(forResource: "embed21", ofType: "html"){
             let fm = FileManager()
             let exists = fm.fileExists(atPath: path)
             if(exists){
@@ -512,7 +512,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             //
             
             wv = WKWebView(frame: frm, configuration: webConfiguration);
-            setBackground(params: nil);
+            //setBackground(params: nil);
             //view.backgroundColor = bg;
             view.addSubview(wv);
             wv.isOpaque = false;
