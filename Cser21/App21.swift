@@ -181,7 +181,8 @@ class App21 : NSObject
         DownloadFileTask().load(src: result.params!, success: { (absPath: String) -> Void in
 //
             result.success = true;
-            result.data = JSON(DownloadFileTask.toLocalSchemeUrl(absPath));
+            result.data = JSON(absPath);
+            //JSON(DownloadFileTask.toLocalSchemeUrl(absPath));
             self.App21Result(result: result)
             
         }) { (mess: String)  -> Void in
@@ -501,6 +502,31 @@ class App21 : NSObject
         })
         
         
+    }
+    
+    
+    //MARK: - WV_VISIBLE
+    @objc func WV_VISIBLE(result: Result) -> Void
+    {
+        DispatchQueue.main.async(execute: {
+            result.success = true;
+            self.caller.wv.isHidden = false;
+            self.App21Result(result: result)
+        })
+    }
+    
+    
+    //MARK: - GET_TEXT
+    @objc func GET_TEXT(result: Result) -> Void
+    {
+        result.success = true
+        let d = DownloadFileTask();
+        
+        let text = d.GET_TEXT(path: result.params!);
+        result.data = JSON(text);
+        
+        App21Result(result: result);
+       
     }
 }
 

@@ -10,10 +10,40 @@ import Foundation
 import Alamofire
 class DownloadFileTask {
     func getDocumentsDirectory() -> URL {
+        //fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
+    //MARK: - getlist
+    func getlist() -> [[String:Any?]]
+    {
+        var lst = [[String:Any?]]()
+        let fileManager = FileManager.default
+        let documentsURL = self.getDocumentsDirectory()
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            // process files
+            for f in fileURLs
+            {
+                //fileinfo: name, create, last, len,abspath
+                var finfo = [String:Any?]();
+                finfo["abspath"] = f.absoluteString // un_use: DownloadFileTask.toLocalSchemeUrl(
+                finfo["name"] = f.pathComponents.last ?? "";
+                
+                let attr = try fileManager.attributesOfItem(atPath: f.absoluteURL.path)
+                finfo["len"] = attr[FileAttributeKey.size] as! Int64
+                finfo["create"] = attr[FileAttributeKey.creationDate] as? Date;
+                finfo["last"] = attr[FileAttributeKey.modificationDate] as? Date;
+                
+                
+                lst.append(finfo)
+            }
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+        
+        return lst
+    }
     func ddMMyyyyHHmmss(date: Date?) -> String {
         let d = date ?? Date();
         let formatter = DateFormatter()
@@ -225,36 +255,7 @@ class DownloadFileTask {
         }
     }
    
-    //MARK: - getlist
-    func getlist() -> [[String:Any?]]
-    {
-        var lst = [[String:Any?]]()
-        let fileManager = FileManager.default
-        let documentsURL = self.getDocumentsDirectory()
-        do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            // process files
-            for f in fileURLs
-            {
-                //fileinfo: name, create, last, len,abspath
-                var finfo = [String:Any?]();
-                finfo["abspath"] = DownloadFileTask.toLocalSchemeUrl(f.absoluteString)
-                finfo["name"] = f.pathComponents.last ?? "";
-                
-                let attr = try fileManager.attributesOfItem(atPath: f.absoluteURL.path)
-                finfo["len"] = attr[FileAttributeKey.size] as! Int64
-                finfo["create"] = attr[FileAttributeKey.creationDate] as? Date;
-                finfo["last"] = attr[FileAttributeKey.modificationDate] as? Date;
-                
-                
-                lst.append(finfo)
-            }
-        } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
-        }
-        
-        return lst
-    }
+    
     
     
     //MARK: - toBase64
@@ -276,6 +277,27 @@ class DownloadFileTask {
         return  b64;
     }
     
+    //MARK: - getFile
+    func getFile(path: String) -> URL {
+        
+        var fn = path.split(separator: "?").first
+        fn = fn?.split(separator: "/").last
+        var fileUrl = self.getDocumentsDirectory()
+        fileUrl.appendPathComponent("" + fn!)
+        return fileUrl
+        
+    }
+    
+    //MARK: - GET_TEXT
+    func GET_TEXT(path: String) -> String {
+        let fileUrl = getFile(path: path)
+        
+        do {
+            return try String(contentsOf: fileUrl, encoding: .utf8)
+        }
+        catch {/* error handling here */}
+        return ""
+    }
 }
 extension Data {
     init(reading input: InputStream) throws {

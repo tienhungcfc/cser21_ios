@@ -13,6 +13,9 @@ import MapKit
 import CoreLocation
 class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognizerDelegate,CLLocationManagerDelegate   {
 
+    let HTML_EMBED = "embed21"
+    let domain = "https://cser.vn/";
+    
     //MARK: - Location
     let locationManager = CLLocationManager()
     var locationCallback : ((CLLocationCoordinate2D?) -> Void)?
@@ -70,7 +73,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     
     var os10:Bool = false;
     
-    let domain = "https://cser.vn/";
+    
     
     let mtop = CGFloat(20);
     
@@ -417,7 +420,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
         // Do any additional setup after loading the view, typically from a nib.
         
         // load embed.html
-        if let path = Bundle.main.path(forResource: "embed21", ofType: "html"){
+        if let path = Bundle.main.path(forResource: HTML_EMBED , ofType: "html"){
             let fm = FileManager()
             let exists = fm.fileExists(atPath: path)
             if(exists){
@@ -471,14 +474,14 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
         let evt_Longpress = UILongPressGestureRecognizer(target: self , action: #selector(onLongpress))
         evt_Longpress.delegate = self
         wv.addGestureRecognizer(evt_Longpress)
-        
+       
         
         //UI
         
         // Do any additional setup after loading the view, typically from a nib.
         
         // load embed.html
-        if let path = Bundle.main.path(forResource: "embed", ofType: "html"){
+        if let path = Bundle.main.path(forResource: HTML_EMBED, ofType: "html"){
             let fm = FileManager()
             let exists = fm.fileExists(atPath: path)
             if(exists){
@@ -489,7 +492,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
                 
                 var html:String = "";
                 html +=  cString! as String
-                wv.loadHTMLString(html, baseURL: url)
+                
+                wv.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
                 wv.alpha = 1
             }
             //test
@@ -507,15 +511,16 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             let frm = CGRect(x:0 , y:0, width: view.bounds.width, height: h)
             
             //app21: handler file local
-            //webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+            webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
             webConfiguration.setURLSchemeHandler(LocalSchemeHandler(), forURLScheme: "local")
             //
             
             wv = WKWebView(frame: frm, configuration: webConfiguration);
+            
             //setBackground(params: nil);
             //view.backgroundColor = bg;
             view.addSubview(wv);
-            wv.isOpaque = false;
+            wv.isHidden = true;
             //wv.backgroundColor = bg;
             os10 = false;
             
@@ -543,6 +548,11 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
          * for: NewNotification see in AppDelegate
          */
         NotificationCenter.default.addObserver(self, selector: #selector(onNotificationClick) , name: NSNotification.Name(rawValue: "NotificationClick"), object: nil)
+        
+        /*
+         * font
+         */
+        
     }
     
     //MARK: - DidBecomeActive
