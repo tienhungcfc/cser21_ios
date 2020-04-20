@@ -27,7 +27,9 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
         // Make sure the task is for a dr-bundle-file
         guard let url = urlSchemeTask.request.url,
             let scheme = url.scheme,
-            scheme == "local" else {
+            scheme == "local" ||
+            scheme == "js" ||
+            scheme == "app21" else {
                 urlSchemeTask.didFailWithError(CustomSchemeHandlerError.noIdeaWhatToDoWithThis)
                 return
         }

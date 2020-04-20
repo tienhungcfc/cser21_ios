@@ -27,7 +27,7 @@ class DownloadFileTask {
             {
                 //fileinfo: name, create, last, len,abspath
                 var finfo = [String:Any?]();
-                finfo["abspath"] = f.absoluteString // un_use: DownloadFileTask.toLocalSchemeUrl(
+                finfo["abspath"] = DownloadFileTask.toLocalSchemeUrl( f.absoluteString)
                 finfo["name"] = f.pathComponents.last ?? "";
                 
                 let attr = try fileManager.attributesOfItem(atPath: f.absoluteURL.path)
@@ -44,6 +44,15 @@ class DownloadFileTask {
         
         return lst
     }
+    func toPrivatePrix(absPath: String) -> String {
+        
+        if(absPath.starts(with: "file:///var/") ){
+            return absPath.replacingOccurrences(of: "file:///var/", with: "file:///private/var/")
+        }
+        
+        return absPath
+    }
+    
     func ddMMyyyyHHmmss(date: Date?) -> String {
         let d = date ?? Date();
         let formatter = DateFormatter()
@@ -69,6 +78,10 @@ class DownloadFileTask {
         try? data!.write(to: filename)
         //return "file://private/" + path
         return DownloadFileTask.toLocalSchemeUrl(filename.absoluteString)
+        
+        
+        
+       // return toPrivatePrix(absPath: filename.absoluteString);
     }
     
     static func replaceStartWith(str: String, startWidth: String, replace: String) -> String {
@@ -219,6 +232,7 @@ class DownloadFileTask {
             var documentsURL = self.getDocumentsDirectory()
             documentsURL.appendPathComponent(self.ddMMyyyyHHmmss(date: Date()) + "-" + fn!)
            
+            
             return (documentsURL, [.removePreviousFile])
         }
         
@@ -243,6 +257,7 @@ class DownloadFileTask {
         .responseData { response in
             if let destinationUrl = response.destinationURL {
                 print(destinationUrl)
+                
                 
                 let local = response.destinationURL!.absoluteString;
                 //self.setCache(url: src, localPath: local)

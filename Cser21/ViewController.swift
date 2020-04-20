@@ -493,7 +493,13 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
                 var html:String = "";
                 html +=  cString! as String
                 
-                wv.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
+                
+                if HTML_EMBED == "embed"{
+                    wv.isHidden = false;
+                    wv.loadHTMLString(html, baseURL: url)
+                }else{
+                    wv.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
+                }
                 wv.alpha = 1
             }
             //test
@@ -513,6 +519,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             //app21: handler file local
             webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
             webConfiguration.setURLSchemeHandler(LocalSchemeHandler(), forURLScheme: "local")
+            webConfiguration.setURLSchemeHandler(LocalSchemeHandler(), forURLScheme: "js")
+            webConfiguration.setURLSchemeHandler(LocalSchemeHandler(), forURLScheme: "app21")
             //
             
             wv = WKWebView(frame: frm, configuration: webConfiguration);
