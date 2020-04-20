@@ -113,6 +113,21 @@ class DownloadFileTask {
             return Data.init(); //empty
         }
     }
+    static func readData2(filePath: String)  -> Data?
+    {
+       // let inp = InputStream(fileAtPath: filePath);
+        let path = filePath // or whatever...
+        //let currentDirectory = getDocumentsDirectory(DownloadFileTask())
+        let absouteURL = URL(fileURLWithPath: path);
+        let inp = InputStream(url: absouteURL)
+        do{
+            return  try Data(reading: inp!)
+        }catch{
+            //throw  Error21.runtimeError(error.localizedDescription)
+            NSLog(error.localizedDescription);
+            return nil; //empty
+        }
+    }
     
     func getName(path: String) -> String {
         let a = String(path.split(separator: "?").first!)

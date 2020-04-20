@@ -498,6 +498,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
                     wv.isHidden = false;
                     wv.loadHTMLString(html, baseURL: url)
                 }else{
+                    wv.isHidden = false;
                     wv.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
                 }
                 wv.alpha = 1

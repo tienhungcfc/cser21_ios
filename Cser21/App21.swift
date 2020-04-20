@@ -181,9 +181,7 @@ class App21 : NSObject
         DownloadFileTask().load(src: result.params!, success: { (absPath: String) -> Void in
 //
             result.success = true;
-            
-            
-            
+
             //result.data = JSON(absPath);
             result.data = JSON(DownloadFileTask.toLocalSchemeUrl(absPath));
             self.App21Result(result: result)

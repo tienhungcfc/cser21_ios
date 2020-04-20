@@ -46,16 +46,24 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
         
         
         // Load the data from the file and prepare a URLResponse.
-        let data =  DownloadFileTask.readData(filePath: file);
-        let response = URLResponse(url: url,
-                                   mimeType: mime(ext: "." + ext),
-                                   expectedContentLength: data.count,
-                                   textEncodingName: nil)
-        
-        // Fulfill the task.
-        urlSchemeTask.didReceive(response)
-        urlSchemeTask.didReceive(data)
-        urlSchemeTask.didFinish()
+        let data =  DownloadFileTask.readData2(filePath: file);
+        if(data != nil){
+            let response = URLResponse(url: url,
+                                       mimeType: mime(ext: "." + ext),
+                                       expectedContentLength: data!.count,
+                                       textEncodingName: nil)
+            
+            // Fulfill the task.
+            urlSchemeTask.didReceive(response)
+            urlSchemeTask.didReceive(data!)
+             urlSchemeTask.didFinish()
+        }
+        else{
+            
+            urlSchemeTask.didFailWithError(Error21.runtimeError("500"))
+        }
+       
+       
     }
     
     func mime(ext: String) -> String {
