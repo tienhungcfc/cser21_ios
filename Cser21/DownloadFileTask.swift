@@ -119,6 +119,8 @@ class DownloadFileTask {
         let path = filePath // or whatever...
         //let currentDirectory = getDocumentsDirectory(DownloadFileTask())
         let absouteURL = URL(fileURLWithPath: path);
+        
+        
         let inp = InputStream(url: absouteURL)
         do{
             return  try Data(reading: inp!)

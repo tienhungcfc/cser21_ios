@@ -48,6 +48,17 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
         // Load the data from the file and prepare a URLResponse.
         let data =  DownloadFileTask.readData2(filePath: file);
         if(data != nil){
+            
+            if(data!.count == 0)
+            {
+                let fileManager = FileManager.default
+                if fileManager.fileExists(atPath: file) {
+                   
+                } else {
+                    urlSchemeTask.didFailWithError(Error21.runtimeError("404"))
+                    return;
+                }
+            }
             let response = URLResponse(url: url,
                                        mimeType: mime(ext: "." + ext),
                                        expectedContentLength: data!.count,
@@ -56,7 +67,7 @@ class LocalSchemeHandler: NSObject, WKURLSchemeHandler {
             // Fulfill the task.
             urlSchemeTask.didReceive(response)
             urlSchemeTask.didReceive(data!)
-             urlSchemeTask.didFinish()
+            urlSchemeTask.didFinish()
         }
         else{
             
