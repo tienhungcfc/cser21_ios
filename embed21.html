@@ -25,6 +25,7 @@
             height: 100%;
             width: 100%;
             background-color: transparent;
+            overflow:hidden
         }
 
         #DOT {
@@ -234,7 +235,7 @@
 
         }
 
-        function CLEAR_LOADER21() {
+        function CLEAR_LOADER() {
             ['.splash','.LOADER21'].forEach(function (el) {
                 box(() => {
                     document.querySelector(el).remove();

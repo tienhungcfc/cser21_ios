@@ -348,6 +348,7 @@
 					};
 					34B77782241B82EA00787FE3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -356,10 +357,12 @@
 					};
 					34B77796241B82EB00787FE3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						TestTargetID = 34B77782241B82EA00787FE3;
 					};
 					34B777A1241B82EB00787FE3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						TestTargetID = 34B77782241B82EA00787FE3;
 					};
 				};
