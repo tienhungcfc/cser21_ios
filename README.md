@@ -1,23 +1,9 @@
 # cser21_ios
 for ios
 
-(Các bước xây dựng)
-
-#1.  Khởi tạo App
-- Tạo App, kết nối team developer
-- Chạy Pod
-- Tạo filebase, copy file GoogleService-Info.Plist
-- Tạo Icon
-- Bật Push Notification
-
-#2. Copy các file sau từ code gốc:
-- *.swift 
-- *.storyboard 
-- *.html
-
-
-#3. Info.plist 
-- copy các dòng Privacy từ Info.plist gốc
-- copy dòng: "View controller-based status bar appearance"
-
-#4. Run test, public
+- Clone source code
+- Chọn team, Bundle Identifier
+- Tạo AppIcon
+- Tạo Google Firebase => GoogleService-Info.plist
+- Đổi đường link "https://cser.vn/app/index21.aspx" thành link mới trong embed21.html 
+- Chạy test
