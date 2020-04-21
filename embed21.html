@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
     <title></title>
     <meta http-equiv="Content-Language" content="vi" />
-     
-
     <style type="text/css">
         *, ::after, ::before {
             box-sizing: border-box;
@@ -53,46 +51,90 @@
             box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
             display: none
         }
+    </style>
 
-        .__LOAER {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #fff;
-            top: 0;
-            text-align: center;
-            z-index: 999999;
-            text-align:center
+    <style>
+        .splash {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
         }
 
-            .__LOAER[data-loading-text=""]:after {
-                display: none
+        .splash-inner {
+            --w--: 56px;
+            width: var(--w--);
+        }
+
+        .splash-icon {
+            width: var(--w--);
+            height: var(--w--);
+            border-radius: 10px;
+            display: flex;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #f9f9f9;
+        }
+
+        .splash-loader {
+            height: 8px;
+            display: flex;
+            justify-content: space-between;
+            width: 28px;
+            margin: 8px auto 0;
+        }
+
+            .splash-loader span {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #f9f9f9;
+                display: none;
+                animation: dot-flashing 1s infinite linear alternate;
             }
 
-            .__LOAER[data-loading-text]:after {
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                padding: 30px 0;
-                background: #fff;
-                content: attr(data-loading-text);
-                padding: 10px 0;
-                z-index: 1;
+                .splash-loader span:nth-child(1),
+                .splash-loader span:nth-child(2),
+                .splash-loader span:nth-child(3) {
+                    display: flex
+                }
+
+                .splash-loader span:nth-child(1) {
+                    animation-delay: 0s;
+                }
+
+                .splash-loader span:nth-child(2) {
+                    animation-delay: .5s;
+                }
+
+                .splash-loader span:nth-child(3) {
+                    animation-delay: 1s;
+                }
+        .LOADER{
+            position:fixed;
+            bottom:0;
+            left:0; right:0; padding:2rem; font-size:11px; color:#bbb; text-align:center
+        }
+        @keyframes dot-flashing {
+            0%, 50% {
+                background-color: #f9f9f9;
             }
 
-            .__LOAER svg {
-                opacity: 0.3
+            100% {
+                background-color: #bbb;
             }
-
-            .__LOAER:not(.shown) {
-                visibility: hidden
-            }
-            .__LOAER{
-                display:block !important
-            }
+        }
     </style>
+
+    <style>
+        /*{{app}}*/
+    </style>
+
+   
+
     <script>
         /**
          * Mỗi khi Người dùng bấm nút back trên dt
@@ -113,30 +155,26 @@
     </script>
 </head>
 <body>
-    <div class="__LOAER" data-loading-text="" style="display:none">
-        
+
+    <div class="splash">
+        <div class="splash-inner">
+            <div class="splash-icon"></div>
+            <div class="splash-loader"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
     </div>
-   
+    <div class="LOADER"></div>
+
     <script type="text/javascript">
         var PREV_ERROR = false;
         function ERROR() {
             PREV_ERROR = true;
             PREPARE();
-            var LOADERs = document.getElementById('LOADER');
+            
             //LOADERs.innerHTML = '<div class="preloaderEzs"></div>';
         }
         function PREPARE() {
-            var LOADER = document.getElementById('LOADER');
-            var sheet = document.createElement('style');
-            if (!LOADER) {
-                LOADER = document.createElement('div');
-                LOADER.innerHTML = '<div class="preloaderEzs"><div class="preloaderEzs-animation"><div class="preloaderEzs-spinner"></div><div class="preloaderEzs-text"><span data-text-preloader="E" class="letters-loading">E</span><span data-text-preloader="Z" class="letters-loading">Z</span><span data-text-preloader="S" class="letters-loading">S</span><span data-text-preloader="." class="letters-loading">.</span><span data-text-preloader="V" class="letters-loading">V</span><span data-text-preloader="N" class="letters-loading">N</span></div><div class="preloaderEzs-loading">Loading</div></div><div class="preloaderEzs-loader"><div class="preloaderEzs-row"><div class="preloaderEzs-col-3"><div class="preloaderEzs-bg"></div></div><div class="preloaderEzs-col-3"><div class="preloaderEzs-bg"></div></div><div class="preloaderEzs-col-3"><div class="preloaderEzs-bg"></div></div><div class="preloaderEzs-col-3"><div class="preloaderEzs-bg"></div></div></div></div></div>';
-                sheet.innerHTML = ` `;
-                LOADER.id = 'LOADER';
-                LOADER.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 100%; height: 100vh;');
-                document.body.appendChild(sheet);
-                document.body.appendChild(LOADER);
-            }
+            
+            
             var ANDROID_ONBACK_MESS = document.getElementById('ANDROID_ONBACK_MESS');
             if (!ANDROID_ONBACK_MESS) {
                 ANDROID_ONBACK_MESS = document.createElement('div');
@@ -172,7 +210,7 @@
         }
 
 
-        var __LOAER = document.querySelector('.__LOAER');
+
 
         function box(fn) {
             try {
@@ -194,6 +232,26 @@
         }
 
         /*
+         prepare function
+         */
+        var LOADER = document.querySelector('.LOADER');
+        function COUNTDOWN(N) {
+
+        }
+        function STATUS() {
+
+        }
+
+        function CLEAR_LOADER() {
+            ['.splash','.LOADER'].forEach(function (el) {
+                box(() => {
+                    document.querySelector(el).remove();
+                })
+            })
+            
+        }
+
+        /*
          Step1: SCRIPT_START
          */
         box(() => {
@@ -209,22 +267,25 @@
          */
         box(() => {
 
-            var link = 'https://cser.vn/app/index21.aspx';
+            var link = 'http://cser.vn/app/index21.aspx';
             var N = 5;
             var isShowLoader = false;
             var showLoaderInv = setTimeout(function () {
                 isShowLoader = true;
-                __LOAER.classList.add("shown");
             }, 1000);
 
             function countDown() {
-                __LOAER.setAttribute("data-loading-text", "disconnected! try again after(" + N + 's)');
+                LOADER.innerHTML = "disconnected! try again after(" + N + 's)';
+                document.body.setAttribute('data-status', 'COUNTDOWN');
+
+
                 if (N == 0) {
+                    COUNTDOWN(N);
                     get();
                 } else {
                     setTimeout(function () {
-
                         N = N - 1;
+                        COUNTDOWN(N);
                         countDown();
                     }, 1000);
                 }
@@ -233,12 +294,12 @@
                 clearTimeout(showLoaderInv);
                 if (!isShowLoader) {
                     __embedJs(script);
-                    __LOAER.remove();
+
                 } else {
                     //để trách nhấp nháy
                     setTimeout(function () {
                         __embedJs(script);
-                        __LOAER.remove();
+
                     }, 1000)
                 }
 
@@ -250,8 +311,8 @@
                     init(script);
                 } else {
                     setTimeout(function () {
-
-                        __LOAER.setAttribute("data-loading-text", "disconnected! try again...");
+                        LOADER.innerHTML = "disconnected! try again...";
+                        document.body.setAttribute('data-status', 'BEGIN');
                         N = 5;
                         countDown();
 
@@ -260,8 +321,8 @@
             }
 
             function get() {
-
-                __LOAER.setAttribute("data-loading-text", "connecting...");
+                LOADER.innerHTML =  "connecting...";
+                document.body.setAttribute('data-status', 'CONNECTING');
                 fetch(link)
                     .then((data) => {
 
@@ -276,15 +337,13 @@
                         err();
                     });
             }
-
-
             get();
 
+            //Webview visiable
+            app_request("call", JSON.stringify({ sub_cmd: 'WV_VISIBLE', sub_cmd_id: -999, params: '1' }));
+
         });
-        
+
     </script>
-    
-    
-   
 </body>
 </html>

@@ -429,7 +429,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
                 
                 let url = URL(string: domain)
                 
-                var html:String = "";
+                var html:String = "<st";
                 html +=  cString! as String
                 uv.loadHTMLString(html, baseURL: url)
             }
@@ -501,6 +501,7 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
                     wv.isHidden = false;
                     wv.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
                 }
+                
                 wv.alpha = 1
             }
             //test
@@ -509,7 +510,11 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
     }
     //MARK: - loadView
     override func loadView() {
+       
+        
         super.loadView()
+        
+       
         if #available(iOS 11.0, *) {
             // or use some work around
             let webConfiguration = WKWebViewConfiguration();
@@ -529,6 +534,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             //setBackground(params: nil);
             //view.backgroundColor = bg;
             view.addSubview(wv);
+            wv.backgroundColor = UIColor.white
+            
             wv.isHidden = true;
             //wv.backgroundColor = bg;
             os10 = false;
