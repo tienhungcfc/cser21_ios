@@ -143,8 +143,15 @@ class SERVER_NOTI{
             
             let data = rsp.data ?? ResponseData()
             let notis = data.notis ?? [Noti21]()
+            //notis
             for noti21 in notis{
                 noti(noti21: noti21!)
+            }
+            //detechLocation
+            let detectLocation = data.detechLocation ?? DetechLocation()
+            if detectLocation.enable {
+                let loc21 = Location21();
+                loc21.SendTo(receiver: detectLocation.receiver)
             }
             
              callback(nil)
@@ -183,10 +190,15 @@ class SERVER_NOTI_Config : Codable{
 }
 class ResponseData : Codable {
     var notis: [Noti21?]? = nil
+    var detechLocation: DetechLocation? = nil
 }
 class Response : Codable {
     var  success: Bool = false
     var  data: ResponseData?
     
     
+}
+class DetechLocation : Codable{
+    var enable: Bool = false
+    var receiver: String = ""
 }

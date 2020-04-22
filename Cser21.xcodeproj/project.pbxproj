@@ -15,9 +15,12 @@
 		18424FBC2425C8D1006D6B63 /* App21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBB2425C8D1006D6B63 /* App21.swift */; };
 		18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */; };
 		184E9FD4243C8D520044061F /* PostFileToServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E9FD3243C8D510044061F /* PostFileToServer.swift */; };
+		18AB49562450560C005598C2 /* Location21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB49552450560C005598C2 /* Location21.swift */; };
+		18AB495824505FB2005598C2 /* WebControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB495724505FB2005598C2 /* WebControl.swift */; };
 		18B2C726243ECE8A00F0A9BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2C725243ECE8A00F0A9BA /* NotificationService.swift */; };
 		18B2C72A243ECE8A00F0A9BA /* Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 18B2C723243ECE8A00F0A9BA /* Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		18D8AD4D243DB15600976BF4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8AD4C243DB15600976BF4 /* extension.swift */; };
+		18D9AAF424504B8E0080BFCA /* Fetch21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9AAF324504B8D0080BFCA /* Fetch21.swift */; };
 		18DED9D1243D7745001771B2 /* Noti21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DED9D0243D7745001771B2 /* Noti21.swift */; };
 		18DED9D3243D783B001771B2 /* SERVER_NOTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DED9D2243D783B001771B2 /* SERVER_NOTI.swift */; };
 		349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349088F6241B874A004AD9A0 /* GoogleService-Info.plist */; };
@@ -81,12 +84,15 @@
 		18424FBB2425C8D1006D6B63 /* App21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App21.swift; sourceTree = "<group>"; };
 		18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		184E9FD3243C8D510044061F /* PostFileToServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFileToServer.swift; sourceTree = "<group>"; };
+		18AB49552450560C005598C2 /* Location21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location21.swift; sourceTree = "<group>"; };
+		18AB495724505FB2005598C2 /* WebControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebControl.swift; sourceTree = "<group>"; };
 		18B2C723243ECE8A00F0A9BA /* Service.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Service.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B2C725243ECE8A00F0A9BA /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		18B2C727243ECE8A00F0A9BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D8AD4C243DB15600976BF4 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		18D8AD63243DC8C300976BF4 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		18D8AD65243DC8C300976BF4 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		18D9AAF324504B8D0080BFCA /* Fetch21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch21.swift; sourceTree = "<group>"; };
 		18DED9D0243D7745001771B2 /* Noti21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti21.swift; sourceTree = "<group>"; };
 		18DED9D2243D783B001771B2 /* SERVER_NOTI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SERVER_NOTI.swift; sourceTree = "<group>"; };
 		349088F6241B874A004AD9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -220,6 +226,9 @@
 				18DED9D0243D7745001771B2 /* Noti21.swift */,
 				18DED9D2243D783B001771B2 /* SERVER_NOTI.swift */,
 				18D8AD4C243DB15600976BF4 /* extension.swift */,
+				18D9AAF324504B8D0080BFCA /* Fetch21.swift */,
+				18AB49552450560C005598C2 /* Location21.swift */,
+				18AB495724505FB2005598C2 /* WebControl.swift */,
 			);
 			path = Cser21;
 			sourceTree = "<group>";
@@ -524,9 +533,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AB495824505FB2005598C2 /* WebControl.swift in Sources */,
 				181663FE243CF2930097A451 /* ImageUtil.swift in Sources */,
 				18424FBC2425C8D1006D6B63 /* App21.swift in Sources */,
 				18DED9D1243D7745001771B2 /* Noti21.swift in Sources */,
+				18D9AAF424504B8E0080BFCA /* Fetch21.swift in Sources */,
 				18D8AD4D243DB15600976BF4 /* extension.swift in Sources */,
 				184E9FD4243C8D520044061F /* PostFileToServer.swift in Sources */,
 				1816C8B82426EFAC009D326D /* LocalScheme.swift in Sources */,
@@ -536,6 +547,7 @@
 				18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */,
 				34B77789241B82EA00787FE3 /* ViewController.swift in Sources */,
 				34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */,
+				18AB49562450560C005598C2 /* Location21.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

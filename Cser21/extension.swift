@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct StringUtl{
+     static let VALID:String  = "0123456789qwertyuiopasdfghjklzxcvbnm@_-"
+}
+
 extension Int{
     func parseDicKey(data: [String:String]?, key: String, df: Int) ->  Int {
         if data == nil {
@@ -35,4 +39,30 @@ extension Int{
         }
         return 0;
     }
+}
+
+extension String{
+   
+    func toFriend() -> String
+    {
+        var s = String();
+        
+        var before: String = ""
+        for char in self{
+            if(StringUtl.VALID.contains(char.lowercased()))
+            {
+                s.append(char)
+                before = ""
+            }else{
+                if(before != "-")
+                {
+                    s.append("-");
+                    
+                }
+                before = "-"
+            }
+        }
+        return s
+    }
+    
 }
