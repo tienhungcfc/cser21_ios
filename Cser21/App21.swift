@@ -511,7 +511,7 @@ class App21 : NSObject
     {
         DispatchQueue.main.async(execute: {
             result.success = true;
-            self.caller.wv.isHidden = false;
+            self.caller.wv.isHidden = result.params == "0";
             self.App21Result(result: result)
         })
     }
@@ -525,6 +525,24 @@ class App21 : NSObject
         
         let text = d.GET_TEXT(path: result.params!);
         result.data = JSON(text);
+        
+        App21Result(result: result);
+       
+    }
+    
+    //MARK: - GET_INFO
+    @objc func GET_INFO(result: Result) -> Void
+    {
+        result.success = true
+        
+        var info = "IOS";
+        info += ",deviceId:" + UIDevice.current.identifierForVendor!.uuidString
+        info += ",systemName:" + UIDevice.current.systemName
+        info += ",systemVersion:" + UIDevice.current.systemVersion
+        info += ",localizedModel:" + UIDevice.current.localizedModel
+        info += ",model:" + UIDevice.current.model
+        info += ",name:" + UIDevice.current.name
+        result.data = JSON(info);
         
         App21Result(result: result);
        

@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseMessaging
 import FirebaseInstanceID
 import UserNotifications
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
@@ -40,9 +41,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         // "Khó cấu hình nên fixed cứng" - 60(s) * 15
         UIApplication.shared.setMinimumBackgroundFetchInterval(60 * 15)
         
+//        if #available(iOS 13.0, *) {
+//            BGTaskScheduler.shared.register(
+//                forTaskWithIdentifier: getTaskWithIdentifier(),
+//                using: DispatchQueue.global()
+//            ) { task in
+//                self.handleTaskScheduler(task)
+//            }
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        
+        
         return true
     }
     
+    func getTaskWithIdentifier() ->  String {
+        let bundleID = Bundle.main.bundleIdentifier
+        return (bundleID ?? "") +  "-Scheduler"
+    }
+    
+    @available(iOS 13.0, *)
+    private func handleTaskScheduler(_ task: BGTask) {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        
+        task.expirationHandler = {
+            queue.cancelAllOperations()
+        }
+
+        let lastOperation = queue.operations.last
+        lastOperation?.completionBlock = {
+            task.setTaskCompleted(success: !(lastOperation?.isCancelled ?? false))
+        }
+        SERVER_NOTI().runBackgroundFetch()
+        scheduleRepeat()
+    }
+    @available(iOS 13.0, *)
+    private func scheduleRepeat() {
+        do {
+            let request = BGAppRefreshTaskRequest(identifier: getTaskWithIdentifier())
+            request.earliestBeginDate = Date(timeIntervalSinceNow: 3600)
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print(error)
+        }
+    }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("APNs device token: \(deviceTokenString)")
@@ -137,7 +181,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         //SERVER_NOTI().runBackground(config: <#T##SERVER_NOTI_Config#>, callback: <#T##(Error?) -> ()#>)
         
        SERVER_NOTI().runBackgroundFetch()
-        
        completionHandler(.noData)
     }
     
