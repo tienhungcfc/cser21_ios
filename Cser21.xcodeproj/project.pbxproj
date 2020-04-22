@@ -15,6 +15,7 @@
 		18424FBC2425C8D1006D6B63 /* App21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBB2425C8D1006D6B63 /* App21.swift */; };
 		18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */; };
 		184E9FD4243C8D520044061F /* PostFileToServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E9FD3243C8D510044061F /* PostFileToServer.swift */; };
+		18A28FEF2450A39C00EEEB7A /* Record21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A28FEE2450A39C00EEEB7A /* Record21.swift */; };
 		18AB49562450560C005598C2 /* Location21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB49552450560C005598C2 /* Location21.swift */; };
 		18AB495824505FB2005598C2 /* WebControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB495724505FB2005598C2 /* WebControl.swift */; };
 		18B2C726243ECE8A00F0A9BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2C725243ECE8A00F0A9BA /* NotificationService.swift */; };
@@ -84,6 +85,7 @@
 		18424FBB2425C8D1006D6B63 /* App21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App21.swift; sourceTree = "<group>"; };
 		18424FBD2425DC7A006D6B63 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		184E9FD3243C8D510044061F /* PostFileToServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFileToServer.swift; sourceTree = "<group>"; };
+		18A28FEE2450A39C00EEEB7A /* Record21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record21.swift; sourceTree = "<group>"; };
 		18AB49552450560C005598C2 /* Location21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location21.swift; sourceTree = "<group>"; };
 		18AB495724505FB2005598C2 /* WebControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebControl.swift; sourceTree = "<group>"; };
 		18B2C723243ECE8A00F0A9BA /* Service.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Service.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +231,7 @@
 				18D9AAF324504B8D0080BFCA /* Fetch21.swift */,
 				18AB49552450560C005598C2 /* Location21.swift */,
 				18AB495724505FB2005598C2 /* WebControl.swift */,
+				18A28FEE2450A39C00EEEB7A /* Record21.swift */,
 			);
 			path = Cser21;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				181E40822426573E00FFB738 /* JSON.swift in Sources */,
 				18DED9D3243D783B001771B2 /* SERVER_NOTI.swift in Sources */,
 				181E40842426593400FFB738 /* DownloadFileTask.swift in Sources */,
+				18A28FEF2450A39C00EEEB7A /* Record21.swift in Sources */,
 				18424FBE2425DC7A006D6B63 /* AttachmentHandler.swift in Sources */,
 				34B77789241B82EA00787FE3 /* ViewController.swift in Sources */,
 				34B77787241B82EA00787FE3 /* AppDelegate.swift in Sources */,

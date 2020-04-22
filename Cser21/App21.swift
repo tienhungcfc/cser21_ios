@@ -147,7 +147,16 @@ class App21 : NSObject
                 
             })
         })
- 
+    }
+    
+    //MARK: - RECORD_AUDIO
+    @objc func RECORD_AUDIO(result: Result) -> Void {
+        
+    }
+    
+    //MARK: - RECORD_VIDEO
+    @objc func RECORD_VIDEO(result: Result) -> Void {
+        
     }
     
     
