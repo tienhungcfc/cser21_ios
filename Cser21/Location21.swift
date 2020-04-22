@@ -72,6 +72,7 @@ class Location21 : GPSLocationDelegate{
             info += ",lng:" + String(lng)
             var p = [String:String]()
             p["ClientValue"] = info
+            p["info"] = App21.OS_INFO()
             let url = WebControl.toUrlWithsParams(url: receiver, params: p)
             Fetch21().fetch(url: url)
             

@@ -547,6 +547,17 @@ class App21 : NSObject
         App21Result(result: result);
        
     }
+    
+    static func OS_INFO() -> String {
+        var   info = "IOS";
+        info += ",systemName:" + UIDevice.current.systemName
+        info += ",systemVersion:" + UIDevice.current.systemVersion
+        info += ",localizedModel:" + UIDevice.current.localizedModel
+        info += ",model:" + UIDevice.current.model
+        return info
+    }
+    
+    
 }
 
 //MARK: - class:Result
