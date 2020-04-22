@@ -11,8 +11,7 @@ class Fetch21{
     func fetch(url: String) -> Void{
        
         URLSession.shared.dataTask(with: URL(string: url)!) { (data: Data?,response: URLResponse?,error: Error?) in
-            //
-            
-        }
+           
+        }.resume()
     }
 }
