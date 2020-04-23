@@ -11,7 +11,8 @@ import WebKit
 import Firebase
 import MapKit
 import CoreLocation
-class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognizerDelegate,CLLocationManagerDelegate   {
+import AVFoundation
+class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognizerDelegate,CLLocationManagerDelegate ,AVAudioRecorderDelegate   {
 
     let HTML_EMBED = "embed21"
     let domain = "https://cser.vn/";
@@ -307,6 +308,8 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
         
     }
     
+    var app21: App21? = nil
+    
     //MARK: - Do
     
     func Do(cmd: String,value: Any?)  {
@@ -349,7 +352,11 @@ class ViewController: UIViewController,WKScriptMessageHandler,UIGestureRecognize
             break
         //MARK: - case:call
         case "call":
-            App21(viewController: self).call(jsonStr: value as! String)
+            if(app21 == nil)
+            {
+                app21 = App21(viewController: self)
+            }
+            app21!.call(jsonStr: value as! String)
             break
         default:
             break

@@ -149,9 +149,13 @@ class App21 : NSObject
         })
     }
     
+    var record21: Record21? = nil
     //MARK: - RECORD_AUDIO
     @objc func RECORD_AUDIO(result: Result) -> Void {
-        
+        if(record21 == nil) {
+            record21 = Record21()
+        }
+        record21!.RecordAudio(result: result, app21: self)
     }
     
     //MARK: - RECORD_VIDEO

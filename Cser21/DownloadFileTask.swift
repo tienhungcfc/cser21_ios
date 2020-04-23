@@ -330,6 +330,12 @@ class DownloadFileTask {
         catch {/* error handling here */}
         return ""
     }
+    
+    func filenameFrom(suffix: String) -> URL {
+        var documentsURL = self.getDocumentsDirectory()
+        documentsURL.appendPathComponent(self.ddMMyyyyHHmmss(date: Date()) + "-" + suffix)
+        return documentsURL
+    }
 }
 extension Data {
     init(reading input: InputStream) throws {
