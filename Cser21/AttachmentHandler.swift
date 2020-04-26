@@ -34,19 +34,25 @@ class AttachmentHandler: NSObject {
     var filePickedBlock: ((URL) -> Void)?
     
    
+    var captionVideo = false
 
-   public func showCamera(vc: UIViewController){
+    public func showCamera(vc: UIViewController  ){
         currentVC = vc;
         self.openCamera()
     }
    
     
-    func openCamera() {
+    func openCamera( ) {
         DispatchQueue.main.async { () -> Void in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 let myPickerController = UIImagePickerController()
                 myPickerController.delegate = self
                 myPickerController.sourceType = .camera
+                
+                if(self.captionVideo) {
+                    myPickerController.mediaTypes = [kUTTypeMovie as String]
+                }
+                
                 self.currentVC?.present(myPickerController, animated: true, completion: nil)
             }
         }

@@ -160,7 +160,36 @@ class App21 : NSObject
     
     //MARK: - RECORD_VIDEO
     @objc func RECORD_VIDEO(result: Result) -> Void {
-        
+        //
+        DispatchQueue.main.async(execute: {
+            // self.caller.openCamera(result: result);
+            self._PERMISSION(permission: PermissionName.video,result: result, ok:{(mess: String) -> Void in
+                //go
+                NSLog("ok->openCamera");
+                
+                
+                AttachmentHandler.shared.captionVideo = true
+                AttachmentHandler.shared.showCamera(vc: self.caller);
+                
+                AttachmentHandler.shared.videoPickedBlock = { (video) in
+                    /* get your image here */
+                    //Use image name from bundle to create NSData
+                    // let image : UIImage = UIImage(named:"imageNameHere")!
+                    //Now use image to create into NSData format
+                    //let imageData:NSData = image.pngData()! as NSData
+                    
+                    //let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+                    result.success = true
+                    
+
+                    
+                    let src = DownloadFileTask().saveURL(url: video as URL, suffix: "RECORD_VIDEO.mp4");
+                    result.data = JSON(src);
+                    self.App21Result(result: result);
+                }
+                
+            })
+        })
     }
     
     
