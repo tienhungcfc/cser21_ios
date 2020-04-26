@@ -20,6 +20,7 @@
 		18AB495824505FB2005598C2 /* WebControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB495724505FB2005598C2 /* WebControl.swift */; };
 		18B2C726243ECE8A00F0A9BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2C725243ECE8A00F0A9BA /* NotificationService.swift */; };
 		18B2C72A243ECE8A00F0A9BA /* Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 18B2C723243ECE8A00F0A9BA /* Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		18D1BE4024558950001B95F7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 18D1BE3F24558950001B95F7 /* fonts */; };
 		18D8AD4D243DB15600976BF4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8AD4C243DB15600976BF4 /* extension.swift */; };
 		18D9AAF424504B8E0080BFCA /* Fetch21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9AAF324504B8D0080BFCA /* Fetch21.swift */; };
 		18DED9D1243D7745001771B2 /* Noti21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DED9D0243D7745001771B2 /* Noti21.swift */; };
@@ -91,6 +92,7 @@
 		18B2C723243ECE8A00F0A9BA /* Service.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Service.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B2C725243ECE8A00F0A9BA /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		18B2C727243ECE8A00F0A9BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D1BE3F24558950001B95F7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		18D8AD4C243DB15600976BF4 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		18D8AD63243DC8C300976BF4 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		18D8AD65243DC8C300976BF4 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -208,6 +210,7 @@
 		34B77785241B82EA00787FE3 /* Cser21 */ = {
 			isa = PBXGroup;
 			children = (
+				18D1BE3F24558950001B95F7 /* fonts */,
 				183E4580244AEBD700E6AB75 /* embed21.html */,
 				349088F9241B8A3D004AD9A0 /* embed.html */,
 				349088F8241B88A9004AD9A0 /* Cser21.entitlements */,
@@ -415,6 +418,7 @@
 				34B77791241B82EB00787FE3 /* LaunchScreen.storyboard in Resources */,
 				349088F7241B874B004AD9A0 /* GoogleService-Info.plist in Resources */,
 				349088FA241B8A3D004AD9A0 /* embed.html in Resources */,
+				18D1BE4024558950001B95F7 /* fonts in Resources */,
 				183E4581244AEBD800E6AB75 /* embed21.html in Resources */,
 				34B7778E241B82EB00787FE3 /* Assets.xcassets in Resources */,
 				34B7778C241B82EA00787FE3 /* Main.storyboard in Resources */,
