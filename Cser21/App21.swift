@@ -599,6 +599,36 @@ class App21 : NSObject
         return info
     }
     
+    //MARK: - TEL
+    @objc func TEL(result: Result) -> Void
+    {
+        result.success = true
+        let number = result.params
+        let _url = "tel://" + number!
+        if let url = URL(string: _url) {
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.open(url)
+            })
+            
+        }
+        App21Result(result: result);
+    }
+    //MARK: - SHARE_OPEN
+    @objc func SHARE_OPEN(result: Result) -> Void
+    {
+        result.success = true
+        
+        let _url = result.params!
+        if let url = URL(string: _url) {
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.open(url)
+            })
+            
+        }
+        App21Result(result: result);
+        
+    }
+    
     
 }
 
